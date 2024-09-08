@@ -1,0 +1,1476 @@
+Slip1
+Q1) Write a Program to print all Prime numbers in an array of ‘n’ elements.
+(usecommand line arguments)
+Solution
+import java.util.Scanner;
+public class PrimeNumbers{
+public static void main (String[] args){
+ int[] array = new int [5];
+ Scanner in = new Scanner (System.in);
+ System.out.println("Enter the elements of the array: ");
+ for(int i=0; i<5; i++)
+ {
+ array[i] = in.nextInt();
+ }
+ //loop through the numbers one by one
+ for(int i=0; i<array.length; i++){
+ boolean isPrime = true;
+
+ //check to see if the numbers are prime
+ for (int j=2; j<array[i]; j++){
+
+ if(array[i]%j==0){
+ isPrime = false;
+ break;
+ }
+ }
+ //print the number
+ if(isPrime)
+ System.out.println(array[i] + " are the prime numbers in the array ");
+ }
+}}
+Q2) Define an abstract class Staff with protected members id and name. Define a
+parameterized constructor. Define one subclass Office Staff with member department.
+Slip1
+Create n objects of Office Staff and display all details.
+Solution
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+abstract class Staff{
+String name,address;
+}
+class FullTimeStaff extends Staff{
+String department;
+double salary;
+public void accept() throws IOException{
+System.out.println("Enter the name, address, department and salary: ");
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+name=br.readLine();
+address=br.readLine();
+department=br.readLine();
+salary=Double.parseDouble(br.readLine());
+}
+public void display(){
+System.out.println("Name: "+name);
+System.out.println("Address: "+address);
+System.out.println("Department: "+department);
+System.out.println("Salary: "+salary);
+System.out.println("----------------------");
+}
+}
+class PartTimeStaff extends Staff{
+int hours, rate;
+public void accept() throws IOException{
+System.out.println("Enter the name, address, No of working hours and rate per hour: ");
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+name=br.readLine();
+address=br.readLine();
+hours=Integer.parseInt(br.readLine());
+rate=Integer.parseInt(br.readLine());
+}
+public void display(){
+System.out.println("Name: "+name);
+System.out.println("Address: "+address);
+System.out.println("No of Working Hours: "+hours);
+System.out.println("Rate per hour: "+rate);
+System.out.println("----------------------");
+}
+}
+public class sb1 {
+Slip1
+public static void main(String [] args) throws IOException{
+int i;
+System.out.println("Select Any One: ");
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("1.Full Time Staff");
+System.out.println("2.Part Time Satff");
+int ch=Integer.parseInt(br.readLine());
+switch(ch){
+case 1:
+System.out.println("Enter the number of Full Time Staff: ");
+int n=Integer.parseInt(br.readLine());
+FullTimeStaff [] l=new FullTimeStaff[n];
+for(i=0;i<n;i++){
+l[i]=new FullTimeStaff();
+l[i].accept();
+}
+for(i=0;i<n;i++){
+l[i].display();
+}
+break;
+case 2:
+System.out.println("Enter the number of Part Time Staff: ");
+int m=Integer.parseInt(br.readLine());
+PartTimeStaff [] h=new PartTimeStaff[m];
+for(i=0;i<m;i++){
+h[i]=new PartTimeStaff();
+h[i].accept();
+}
+for(i=0;i<m;i++){
+h[i].display();
+}
+break;
+}
+}
+}
+Slip2
+Q1) Write a program to read the First Name and Last Name of a person, his weight and height
+using command line arguments. Calculate the BMI Index which is defined as the
+individual's body mass divided by the square of their height.
+(Hint : BMI = Wts. In kgs / (ht)2
+)
+Solution
+public class BMICalculator {
+ public static void main(String[] args) {
+ if (args.length != 4) {
+ System.out.println("Usage: java BMICalculator <First Name> <Last Name>
+<Weight in kgs> <Height in meters>");
+ System.exit(1);
+ }
+ String firstName = args[0];
+ String lastName = args[1];
+ try {
+ double weightKgs = Double.parseDouble(args[2]);
+ double heightMeters = Double.parseDouble(args[3]);
+ double bmi = weightKgs / (heightMeters * heightMeters);
+ System.out.printf("%s %s's BMI is: %.2f%n", firstName, lastName, bmi);
+ } catch (NumberFormatException e) {
+ System.out.println("Invalid input for weight or height. Please provide
+numeric values.");
+ System.exit(1);
+ }
+ }
+}
+Slip2
+Q2) Define a class CricketPlayer (name,no_of_innings,no_of_times_notout, totatruns,
+bat_avg). Create an array of n player objects .Calculate the batting average for each
+player using static method avg(). Define a static sort method which sorts the array on
+the basis of average. Display the player details in sorted order.
+Solution:
+import java.io.*;
+class Cricket {
+String name;
+int inning, tofnotout, totalruns;
+float batavg;
+public Cricket(){
+name=null;
+inning=0;
+tofnotout=0;
+totalruns=0;
+batavg=0;
+}
+public void get() throws IOException{
+BufferedReader br=new BufferedReader(new
+InputStreamReader(System.in));
+System.out.println("Enter the name, no of innings, no of times not out,
+total runs: ");
+name=br.readLine();
+inning=Integer.parseInt(br.readLine());
+tofnotout=Integer.parseInt(br.readLine());
+totalruns=Integer.parseInt(br.readLine());
+}
+public void put(){
+System.out.println("Name="+name);
+System.out.println("no of innings="+inning);
+System.out.println("no times notout="+tofnotout);
+Slip2
+System.out.println("total runs="+totalruns);
+System.out.println("bat avg="+batavg);
+}
+static void avg(int n, Cricket c[]){
+try{
+for(int i=0;i<n;i++){
+c[i].batavg=c[i].totalruns/c[i].inning;
+}
+}catch(ArithmeticException e){
+System.out.println("Invalid arg");
+}
+}
+static void sort(int n, Cricket c[]){
+String temp1;
+int temp2,temp3,temp4;
+float temp5;
+for(int i=0;i<n;i++){
+for(int j=i+1;j<n;j++){
+if(c[i].batavg<c[j].batavg){
+temp1=c[i].name;
+c[i].name=c[j].name;
+c[j].name=temp1;
+temp2=c[i].inning;
+c[i].inning=c[j].inning;
+c[j].inning=temp2;
+temp3=c[i].tofnotout;
+c[i].tofnotout=c[j].tofnotout;
+c[j].tofnotout=temp3;
+temp4=c[i].totalruns;
+Slip2
+c[i].totalruns=c[j].totalruns;
+c[j].totalruns=temp4;
+temp5=c[i].batavg;
+c[i].batavg=c[j].batavg;
+c[j].batavg=temp5;
+}
+}
+}
+}
+}
+public class a4sa1 {
+public static void main(String args[])throws IOException{
+BufferedReader br=new BufferedReader(new
+InputStreamReader(System.in));
+System.out.println("Enter the limit:");
+int n=Integer.parseInt(br.readLine());
+Cricket c[]=new Cricket[n];
+for(int i=0;i<n;i++){
+c[i]=new Cricket();
+c[i].get();
+}
+Cricket.avg(n,c);
+Cricket.sort(n, c);
+for(int i=0;i<n;i++){
+c[i].put();
+}
+}
+}
+Slip2
+Slip3
+Q1) Write a program to accept ‘n’ name of cities from the user and sort them in
+ascending order.
+Solution:
+import java.util.Scanner;
+
+class SortStrings
+{
+ public static void main(String args[])
+ {
+ String temp;
+ Scanner SC = new Scanner(System.in);
+
+ System.out.print("Enter the value of N: ");
+ int N= SC.nextInt();
+ SC.nextLine(); //ignore next line character
+
+ String names[] = new String[N];
+
+ System.out.println("Enter names: ");
+ for(int i=0; i<N; i++)
+ {
+ System.out.print("Enter name [ " + (i+1) +" ]: ");
+ names[i] = SC.nextLine();
+ }
+
+ //sorting strings
+
+ for(int i=0; i<5; i++)
+Slip3
+ {
+ for(int j=1; j<5; j++)
+ {
+ if(names[j-1].compareTo(names[j])>0)
+ {
+ temp=names[j-1];
+ names[j-1]=names[j];
+ names[j]=temp;
+ }
+ }
+ }
+ System.out.println("\nSorted names are in Ascending Order: ");
+ for(int i=0;i<N;i++)
+ {
+ System.out.println(names[i]);
+ }
+ }
+}
+Q2)Define a class patient (patient_name, patient_age,
+Slip3
+patient_oxy_level,patient_HRCT_report). Create an object of patient. Handle
+appropriate exception while patient oxygen level less than 95% and HRCT scan report
+greater than 10, then throw user defined Exception “Patient is Covid Positive(+) and
+Need to Hospitalized” otherwise display its information.
+Solution
+import java.util.*;
+class Patient
+{
+String name;
+int age;
+int oxylevel;
+int HRCTreport;
+Patient(String name,int age,int oxylevel,int HRCTreport)
+{
+this.name = name;
+this.age = age;
+this.oxylevel = oxylevel;
+this.HRCTreport = HRCTreport;
+}
+}
+public class main extends Exception
+{
+public static void main(String[] args)
+{
+Scanner sc = new Scanner(System.in);
+System.out.println("How many patient you want insert:");
+int number = sc.nextInt();
+Patient[] ob = new Patient[number];
+for(int j=0; j<number; j++)
+{
+Slip3
+System.out.println("Enter Name ");
+String name = sc.next();
+System.out.println("Enter Age ");
+int age = sc.nextInt();
+System.out.println("Enter oxygen level");
+int oxylevel = sc.nextInt();
+System.out.println("Enter HRCT report");
+int HRCTreport = sc.nextInt();
+ob[j] = new Patient(name, age, oxylevel, HRCTreport);
+}
+for(int j=0; j<number; j++)
+{
+if(ob[j].oxylevel < 95 && ob[j].HRCTreport > 10)
+try
+{
+throw new NullPointerException("\n");
+}
+catch(Exception e)
+{
+System.out.println("Patient is Covid Positiveand Need to Hospitalized");
+}
+else
+{
+System.out.println("name: "+ob[j].name);
+System.out.println("age " + ob[j].age);
+System.out.println("oxygen level " +ob[j].oxylevel);
+System.out.println("HRCT report " + ob[j].HRCTreport);
+Slip3
+System.out.println("\n");
+}
+}
+}
+}
+Slip6
+Q1) Write a program to display the Employee(Empid, Empname, Empdesignation,
+Empsal) information using toString().
+Solution
+class employe{
+ int id,salary;
+ String name;
+ String city;
+ employe(int id, String name, int salary, String city){
+this.id=id;
+this.name=name;
+this.salary=salary;
+this.city=city;
+ }
+ public String toString(){
+return id+" "+ name + " " + salary + " " + city;
+ }
+ public static void main(String args[]){
+employe e1=new employe(111,"XYZ",50000,"Nashik");
+employe e2=new employe(112,"ABC",80000,"Mumbai");
+System.out.println("Employe Details: "+ e1);
+System.out.println("Employe Details: "+ e2);
+ }
+}
+Q2) Create an abstract class “order” having members id, description. Create two
+Slip6
+subclasses “PurchaseOrder” and “Sales Order” having members customer name and
+Vendor name respectively. Definemethods accept and display in all cases. Create 3
+objects each of Purchase Order and Sales Order and accept and display details.
+Solution
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+abstract class Order
+{
+String id,description;
+}
+class PurchaseOrder extends Order
+{
+String Customername,Vendorname;
+public void accept() throws
+IOException
+{
+System.out.println("Enter The ID,Description, Name of customer and
+vendor: ");
+BufferedReader br=new
+BufferedReader (new InputStreamReader(System.in));
+id=br.readLine();
+description=br.readLine();
+Customername=br.readLine();
+Vendorname=br.readLine();
+}
+public void display()
+{
+System.out.println("id: "+id);
+System.out.println("Description: "+description);
+Slip6
+System.out.println("Customername: "+Customername);
+System.out.println("Vendername: "+Vendorname);
+System.out.println("Customername: "+Customername);
+System.out.println("====================================
+===========");
+}
+}
+class SalesOrder extends Order
+{
+String Customername,Vendorname;
+public void accept() throws
+IOException
+{
+System.out.println("Enter The ID,Description, Name of customer and
+vendor: ");
+BufferedReader br=new
+BufferedReader (new InputStreamReader(System.in));
+id=br.readLine();
+description=br.readLine();
+Customername=br.readLine();
+Vendorname=br.readLine();
+}
+public void display()
+{
+System.out.println("id: "+id);
+System.out.println("Description: "+description);
+System.out.println("Customername: "+Customername);
+System.out.println("Vendername: "+Vendorname);
+System.out.println("Customername: "+Customername);
+System.out.println("====================================
+===========");
+Slip6
+}
+}
+public class Slip6q2
+{
+public static void main(String []args) throws IOException
+{
+int i;
+System.out.println("Select any one: ");
+BufferedReader br=new
+BufferedReader (new InputStreamReader(System.in));
+System.out.println("1.Purchase Order:- ");
+System.out.println("2.Sale Order:- ");
+int
+ch=Integer.parseInt(br.readLine());
+switch(ch)
+{
+case 1:
+System.out.println("Enter The number of Purchase Orders:- ");
+int n=Integer.parseInt(br.readLine());
+PurchaseOrder [] l=new
+PurchaseOrder[n];
+for(i=0;i<n;i++)
+{
+l[i].display();
+System.out.println("Object is Created");
+}
+break;
+case 2:
+System.out.println("Enter The number of Sale Orders:- ");
+Slip6
+int m=Integer.parseInt(br.readLine());
+SalesOrder [] h=new SalesOrder[m];
+for(i=0;i<m;i++)
+{
+h[i]=new SalesOrder();
+h[i].accept();
+}
+for(i=0;i<m;i++)
+{
+h[i].display();
+System.out.println("Object is Created");
+}
+break;
+}
+}
+}
+Slip7
+Q1) Design a class for Bank. Bank Class should support following operations;
+a. Deposit a certain amount into an account
+b. Withdraw a certain amount from an account
+c. Return a Balance value specifying the amount with details
+Solution
+ import java.io.*;
+public class BankAccount {
+ private String accountNumber;
+ private String accountHolder;
+ private double balance;
+ public BankAccount(String accountNumber, String accountHolder,
+double initialBalance) {
+ this.accountNumber = accountNumber;
+ this.accountHolder = accountHolder;
+ this.balance = initialBalance;
+ }
+ public void deposit(double amount) {
+ if (amount > 0) {
+ balance += amount;
+ System.out.println("Deposited $" + amount + ". New balance: $" +
+balance);
+ } else {
+ System.out.println("Invalid deposit amount.");
+ }
+ }
+ public void withdraw(double amount) {
+ if (amount > 0 && amount <= balance) {
+Slip7
+ balance -= amount;
+ System.out.println("Withdrew $" + amount + ". New balance: $" +
+balance);
+ } else {
+ System.out.println("Insufficient funds or invalid withdrawal
+amount.");
+ }
+ }
+ public double getBalance() {
+ return balance;
+ }
+ public String toString() {
+ return "Account Number: " + accountNumber + "\nAccount Holder: "
++ accountHolder + "\nBalance: $" + balance;
+ }
+ public static void main(String[] args) {
+ BankAccount account1 = new BankAccount("123456789", "John Doe",
+1000);
+ System.out.println(account1);
+ account1.deposit(500);
+ account1.withdraw(200);
+ System.out.println("Current balance: $" + account1.getBalance());
+ BankAccount account2 = new BankAccount("987654321", "Jane
+Smith", 1500);
+ account2.withdraw(2000);
+ }
+}
+Slip7
+Q2) Write a program to accept a text file from user and display the contents of a file
+in reverse order and change its case.
+Solution
+//import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+public class ReverseAndChangeCase{
+ public static void main(String[] args) {
+ BufferedReader reader = null;
+ try {
+
+ String filename = "file.txt";
+
+ reader = new BufferedReader(new FileReader(filename));
+ StringBuilder content = new StringBuilder();
+ String line;
+
+ while ((line = reader.readLine()) != null) {
+ content.append(line).append("\n");
+ }
+Slip7
+
+ String upperCaseContent = content.toString().toUpperCase();
+ // Display content in reverse order
+ for (int i = upperCaseContent.length() - 1; i >= 0; i--) {
+ System.out.print(upperCaseContent.charAt(i));
+ }
+ } catch (IOException e) {
+ e.printStackTrace();
+ } finally {
+ try {
+ if (reader != null) {
+ reader.close();
+ }
+ } catch (IOException e) {
+ e.printStackTrace();
+ }
+ }
+ }
+}
+Create Text file which we use inprogram
+Slip8
+Q1) Create a class Sphere, to calculate the volume and surface area of
+sphere. (Hint : Surface area=4*3.14(r*r),
+Volume=(4/3)3.14(r*r*r))
+Solution
+import java.io.*;
+class GFG {
+
+// Initializing Value Of PI
+static float pi = 3.14159f;
+
+// Function To Calculate Volume Of Sphere
+static float volume(float r)
+{
+ float vol;
+ vol = ((float)4 / (float)3) * (pi * r * r * r);
+ return vol;
+}
+
+// Function To Calculate Surface Area of Sphere
+static float surface_area(float r) {
+ float sur_ar;
+ sur_ar = 4 * pi * r * r;
+ return sur_ar;
+}
+
+// Driver Function
+public static void main (String [] args)
+Slip8
+{
+ float radius = 12;
+ float vol, sur_area;
+
+ // Function Call
+ vol = volume(radius);
+ sur_area = surface_area(radius);
+
+ // Printing Value Of Volume And Surface Area
+ System.out.println("Volume Of Sphere :" + vol);
+ System.out.println("Surface Area Of Sphere :" + sur_area);
+}
+}
+Slip8
+Q2) Design a screen to handle the Mouse Events such as MOUSE_MOVED
+and MOUSE_CLICKED and display the position of the Mouse_Click in a TextField.
+Solution
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends Frame
+{
+TextField t,t1;
+Label l,l1;
+int x,y;
+Panel p;
+MyFrame(String title)
+{
+super(title);
+setLayout(new FlowLayout());
+p=new Panel();
+p.setLayout(new GridLayout(2,2,5,5));
+t=new TextField(20);
+l= new Label("Co-ordinates of clicking");
+l1= new Label("Co-ordinates of movement");
+t1=new TextField(20);
+p.add(l);
+p.add(t);
+p.add(l1);
+Slip8
+p.add(t1);
+add(p);
+addMouseListener(new MyClick());
+addMouseMotionListener(new MyMove());
+setSize(500,500);
+setVisible(true);
+}
+class MyClick extends MouseAdapter
+{
+public void mouseClicked(MouseEvent me)
+{
+x=me.getX();
+y=me.getY();
+t.setText("X="+x+" Y="+y);
+}
+}
+class MyMove extends MouseMotionAdapter
+{
+public void mouseMoved(MouseEvent me)
+{
+x=me.getX();
+y=me.getY();
+t1.setText("X="+ x +" Y="+y);
+}
+}
+}
+class Slip4
+{
+public static void main(String args[])
+{
+Slip8
+MyFrame f = new MyFrame("Slip Number 4");
+}
+}
+Slip9
+Q1) Define a “Clock” class that does the following ;
+a. Accept Hours, Minutes and Seconds
+b. Check the validity of numbers
+c. Set the time to AM/PM mode
+Use the necessary constructors and methods to do the above task
+Solution
+import java.io.*;
+public class Clock {
+ private int hours;
+ private int minutes;
+ private int seconds;
+ private boolean isAM;
+ public Clock(int hours, int minutes, int seconds, boolean isAM) {
+ if (isValidTime(hours, minutes, seconds)) {
+ this.hours = hours;
+ this.minutes = minutes;
+ this.seconds = seconds;
+ this.isAM = isAM;
+ } else {
+ System.out.println("Invalid time entered.");
+ }
+ }
+ private boolean isValidTime(int hours, int minutes, int seconds) {
+ return (hours >= 0 && hours < 24) &&
+ (minutes >= 0 && minutes < 60) &&
+ (seconds >= 0 && seconds < 60);
+ }
+Slip9
+ public void setTimeMode(boolean isAM) {
+ this.isAM = isAM;
+ }
+ public void displayTime() {
+ String timeMode = isAM ? "AM" : "PM";
+ int displayHours = hours;
+
+ if (hours == 0 || hours == 12) {
+ displayHours = 12;
+ } else if (hours > 12) {
+ displayHours = hours - 12;
+ }
+
+ System.out.printf("%02d:%02d:%02d %s%n", displayHours, minutes, seconds,
+timeMode);
+ }
+ public static void main(String[] args) {
+ Clock clock = new Clock(12, 30, 45, true);
+ clock.displayTime();
+ clock.setTimeMode(false);
+ clock.displayTime();
+ }
+}
+Slip9
+Q2) Write a program to using marker interface create a class Product (product_id,
+product_name, product_cost, product_quantity) default and parameterized
+constructor. Create objectsof class product and display the contents of each object
+and Also display the object count.
+Solution
+import java.util.*;
+interface ProductMarker{
+}
+class Product implements ProductMarker{
+int id;
+String name;
+int cost;
+int quantity;
+int count;
+Product(){
+id=0;
+name=" ";
+cost=0;
+quantity=0;
+}
+Product(int id, String name, int cost, int quantity){
+this.id=id;
+this.name=name;
+this.cost=cost;
+this.quantity=quantity;
+this.count++;
+}
+}
+public class Products{
+Slip9
+public static void main(String[] args){
+int count=0;
+Scanner a = new Scanner(System.in);
+System.out.println("How many product ?");
+int number = a.nextInt();
+System.out.println("\n");
+Product products[] = new Product[number];
+System.out.println("Enter Product data");
+for(int k=0; k<number; k++){
+System.out.println("Product Id ");
+int id =a.nextInt();
+System.out.println("Product name ");
+String name = a.next();
+System.out.println("Product cost ");
+int cost = a.nextInt();
+System.out.println("Product qantity ");
+int quantity = a.nextInt();
+System.out.println("\n");
+products[k] = new Product(id, name, cost, quantity);
+count++;
+}
+if(products[0] instanceof ProductMarker){
+System.out.println("Class is using ProductMarker");
+}
+System.out.println(" Product details\n");
+for(Product product:products){
+System.out.println("Product Id " + product.id);
+System.out.println("Product name " + product.name);
+System.out.println("Product cost " + product.cost);
+Slip9
+System.out.println("Product qantity " +
+product.quantity);
+System.out.println("\n");
+}
+System.out.println("Total object is "+count);
+}
+}
+Slip10
+Q1) Write a program to find the cube of given number using functional interface.
+Solution
+@FunctionalInterface
+interface CubeFunction {
+ int calculateCube(int x);
+}
+public class CubeCalculator {
+ public static void main(String[] args) {
+ CubeFunction cube = (x) -> x * x * x;
+int number = 5;
+ int result = cube.calculateCube(number);
+ System.out.println("Cube of " + number + " is: " + result);
+ }
+}
+Q2) Write a program to create a package name student. Define class StudentInfo with
+method to display information about student such as rollno, class, and percentage.
+Create another class StudentPer with method to find percentage of the student.
+Accept student details like
+rollno, name, class and marks of 6 subject from user.
+Solution
+package student;
+import java.util.Scanner;
+public class StudentInfo {
+ private int rollNo;
+ private String name;
+ private String studentClass;
+Slip10
+ private double[] subjectMarks;
+
+ public StudentInfo(int rollNo, String name, String studentClass) {
+ this.rollNo = rollNo;
+ this.name = name;
+ this.studentClass = studentClass;
+ this.subjectMarks = new double[6]; // Assuming 6 subjects
+ }
+ public void inputMarks() {
+ Scanner scanner = new Scanner(System.in);
+ System.out.println("Enter marks for 6 subjects:");
+ for (int i = 0; i < 6; i++) {
+ System.out.print("Subject " + (i + 1) + ": ");
+ subjectMarks[i] = scanner.nextDouble();
+ }
+ }
+ public void displayInfo() {
+ double totalMarks = 0;
+ for (double mark : subjectMarks) {
+ totalMarks += mark;
+ }
+ double percentage = (totalMarks / (6 * 100)) * 100;
+ System.out.println("\nStudent Information:");
+ System.out.println("Roll Number: " + rollNo);
+ System.out.println("Name: " + name);
+ System.out.println("Class: " + studentClass);
+ System.out.println("Percentage: " + percentage + "%");
+Slip10
+ }
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ System.out.print("Enter Roll Number: ");
+ int rollNo = scanner.nextInt();
+ scanner.nextLine(); // Consume the newline
+ System.out.print("Enter Name: ");
+ String name = scanner.nextLine();
+ System.out.print("Enter Class: ");
+ String studentClass = scanner.nextLine();
+ StudentInfo student = new StudentInfo(rollNo, name, studentClass);
+ student.inputMarks();
+ student.displayInfo();
+ }
+}
+Slip11
+Q1) Define an interface “Operation” which has method volume( ).Define a constant PI having a
+value
+3.142 Create a class cylinder which implements this interface (members – radius,height).
+Create one object and calculate the volume.
+Solution
+import java.util.*;
+interface Operation {
+ double volume();
+}
+class Cylinder implements Operation {
+ private double radius;
+ private double height;
+
+ public Cylinder(double radius, double height) {
+ this.radius = radius;
+ this.height = height;
+ }
+
+ public double volume() {
+
+ return Math.PI * radius * radius * height;
+ }
+}
+public class Main {
+ public static void main(String[] args) {
+
+Slip11
+ Cylinder cylinder = new Cylinder(5.0, 10.0);
+
+ double volume = cylinder.volume();
+
+ System.out.println("Volume of the cylinder: " + volume);
+ }
+}
+Q2) Write a program to accept the username and password from user if username and
+password are not same then raise "Invalid Password" with appropriate msg.
+Slip11
+Solution
+import java.util.Scanner;
+class InvalidPasswordException extends Exception {
+ public InvalidPasswordException(String message) {
+ super(message);
+ }
+}
+public class password {
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ try {
+
+ System.out.print("Enter username: ");
+ String username = scanner.nextLine();
+
+ System.out.print("Enter password: ");
+ String password = scanner.nextLine();
+
+ if (!username.equals(password)) {
+ throw new InvalidPasswordException("Invalid Password:
+Username and Password do not match.");
+ } else {
+Slip11
+ System.out.println("Login successful!");
+ }
+ } catch (InvalidPasswordException e) {
+
+ System.err.println(e.getMessage());
+ } finally {
+ scanner.close();
+ }
+ }
+}
+Slip12
+Q1) Write a program to create parent class College(cno, cname, caddr) and derived class
+Department(dno, dname) from College. Write a necessary methods to display College
+details.
+Solution:
+class College {
+ protected int cno;
+ protected String cname;
+ protected String caddr;
+ public College(int cno, String cname, String caddr) {
+ this.cno = cno;
+ this.cname = cname;
+ this.caddr = caddr;
+ }
+ public void displayCollegeDetails() {
+ System.out.println("College Number: " + cno);
+ System.out.println("College Name: " + cname);
+ System.out.println("College Address: " + caddr);
+ }
+}
+class Department extends College {
+ private int dno;
+ private String dname;
+ public Department(int cno, String cname, String caddr, int dno, String
+dname) {
+ super(cno, cname, caddr);
+ this.dno = dno;
+ this.dname = dname;
+ }
+ public void displayDepartmentDetails() {
+ super.displayCollegeDetails();
+Slip12
+ System.out.println("Department Number: " + dno);
+ System.out.println("Department Name: " + dname);
+ }
+}
+public class CollegeDepartmentDemo {
+ public static void main(String[] args) {
+ College college = new College(1, "ABC College", "123 Main Street");
+ System.out.println("College Details:");
+ college.displayCollegeDetails();
+ Department department = new Department(1, "ABC College", "123
+Main Street", 101, "Computer Science");
+ System.out.println("\nDepartment Details:");
+ department.displayDepartmentDetails();
+ }
+}
+Q2) Write a java program that works as a simple calculator. Use a grid layout to arrange
+buttons for the digits and for the +, -, *, % operations. Add a text field to display the
+result.
+Simple Calculator
+1 2 3 +
+4 5 6 -
+7 8 9 *
+0 . = /
+Solution
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+Slip12
+import java.awt.event.ActionListener;
+public class CalculatorGUI extends JFrame implements ActionListener {
+ private JTextField resultField;
+ private JButton[] digitButtons;
+ private JButton[] operationButtons;
+ private JButton clearButton;
+ private JButton equalsButton;
+ private double num1 = 0;
+ private String operator = "";
+ private boolean startNewInput = true;
+ public CalculatorGUI() {
+ setTitle("Simple Calculator");
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ setLayout(new BorderLayout());
+ resultField = new JTextField();
+ resultField.setEditable(false);
+ resultField.setHorizontalAlignment(JTextField.RIGHT);
+ add(resultField, BorderLayout.NORTH);
+ JPanel buttonPanel = new JPanel();
+ buttonPanel.setLayout(new GridLayout(4, 4));
+ digitButtons = new JButton[10];
+ for (int i = 0; i < 10; i++) {
+ digitButtons[i] = new JButton(Integer.toString(i));
+ digitButtons[i].addActionListener(this);
+Slip12
+ buttonPanel.add(digitButtons[i]);
+ }
+ operationButtons = new JButton[5];
+ String[] operators = {"+", "-", "*", "/", "%"};
+ for (int i = 0; i < 5; i++) {
+ operationButtons[i] = new JButton(operators[i]);
+ operationButtons[i].addActionListener(this);
+ buttonPanel.add(operationButtons[i]);
+ }
+ clearButton = new JButton("C");
+ clearButton.addActionListener(this);
+ equalsButton = new JButton("=");
+ equalsButton.addActionListener(this);
+ buttonPanel.add(clearButton);
+ buttonPanel.add(equalsButton);
+ add(buttonPanel, BorderLayout.CENTER);
+ pack();
+ }
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ String command = e.getActionCommand();
+ if (Character.isDigit(command.charAt(0))) {
+ if (startNewInput) {
+ resultField.setText(command);
+Slip12
+ startNewInput = false;
+ } else {
+ resultField.setText(resultField.getText() + command);
+ }
+ } else if (command.equals("C")) {
+ resultField.setText("");
+ num1 = 0;
+ operator = "";
+ startNewInput = true;
+ } else if (command.equals("=")) {
+ if (!operator.isEmpty()) {
+ double num2 = Double.parseDouble(resultField.getText());
+ double result = calculate(num1, num2, operator);
+ resultField.setText(Double.toString(result));
+ startNewInput = true;
+ operator = "";
+ }
+ } else {
+ if (!startNewInput) {
+ num1 = Double.parseDouble(resultField.getText());
+ operator = command;
+ resultField.setText("");
+ startNewInput = true;
+ }
+ }
+ }
+ private double calculate(double num1, double num2, String operator) {
+ switch (operator) {
+ case "+":
+Slip12
+ return num1 + num2;
+ case "-":
+ return num1 - num2;
+ case "*":
+ return num1 * num2;
+ case "/":
+ if (num2 != 0) {
+ return num1 / num2;
+ } else {
+ JOptionPane.showMessageDialog(this, "Cannot divide by
+zero!", "Error", JOptionPane.ERROR_MESSAGE);
+ return 0;
+ }
+ case "%":
+ return num1 % num2;
+ default:
+ return 0;
+ }
+ }
+ public static void main(String[] args) {
+ SwingUtilities.invokeLater(() -> {
+ CalculatorGUI calculator = new CalculatorGUI();
+ calculator.setVisible(true);
+ });
+ }
+}
+Slip13
+Q1) Write a program to accept a file name from command prompt, if the file exits then
+display number of words and lines in that file.
+Solution;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class CountWordFile
+{
+ public static void main(String[] args) throws Exception {
+ String line;
+ int count = 0;
+
+ //Opens a file in read mode
+ FileReader file = new FileReader("data.txt");
+ BufferedReader br = new BufferedReader(file);
+
+ //Gets each line till end of file is reached
+ while((line = br.readLine()) != null) {
+ //Splits each line into words
+ String words[] = line.split(" ");
+ //Counts each word
+ count = count + words.length;
+ }
+
+ System.out.println("Number of words present in given file: " + count);
+ br.close();
+ }
+}
+Q2) Write a program to display the system date and time in various formats shown
+below: Current date is : 31/08/2021
+Slip13
+Current date is : 08-31-2021
+Current date is : Tuesday August 31 2021
+Current date and time is : Fri August 31 15:25:59
+IST 2021 Current date and time is : 31/08/21
+15:25:59 PM +0530
+Solution
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class Slip_13b {
+ public static void main(String[] args) {
+ Date currentDate = new Date();
+ SimpleDateFormat dateFormat1 = new
+SimpleDateFormat("dd/MM/yyyy");
+ SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM-ddyyyy");
+ SimpleDateFormat dateFormat3 = new SimpleDateFormat("EEEE
+MMMM dd yyyy");
+ SimpleDateFormat dateTimeFormat1 = new SimpleDateFormat("EEE
+MMM dd HH:mm:ss zzz yyyy");
+ SimpleDateFormat dateTimeFormat2 = new
+SimpleDateFormat("dd/MM/yy HH:mm:ss a Z");
+ System.out.println("Current date is: " +
+dateFormat1.format(currentDate));
+ System.out.println("Current date is: " +
+dateFormat2.format(currentDate));
+ System.out.println("Current date is : " +
+dateFormat3.format(currentDate));
+ System.out.println("Current date and time is: " +
+dateTimeFormat1.format(currentDate));
+ System.out.println("Current date and time is: " +
+dateTimeFormat2.format(currentDate));
+ }
+}
+Slip24
+Q1) Create an abstract class 'Bank' with an abstract method 'getBalance'. Rs.100,
+Rs.150 and Rs.200 are deposited in banks A, B and C respectively. 'BankA',
+'BankB' and 'BankC'
+are subclasses of class 'Bank', each having a method named 'getBalance'. Call this
+method by creating an object of each of the three classes.
+Solution
+package class2;
+public class Class2 {
+ public static void main(String[] args) {
+ BankA bA = new BankA();
+ bA.getBalance();
+ BankB bB = new BankB();
+ bB.getBalance();
+
+ BankC bC = new BankC();
+ bC.getBalance();
+ }
+
+}
+abstract class Bank{
+Slip24
+ public abstract void getBalance();
+}
+class BankA extends Bank{
+ @Override
+ public void getBalance(){
+ System.out.println("Deposited: $100 ");
+ }
+}
+class BankB extends Bank{
+ @Override
+ public void getBalance(){
+ System.out.println("Deposited: $150 ");
+ }
+}
+class BankC extends Bank{
+ @Override
+ public void getBalance(){
+ System.out.println("Deposited: $200 ");
+ }
+}
+Slip24
+Q2) Program that displays three concentric circles where ever the user clicks the mouse on a
+frame.
+The program must exit when user clicks ‘X’ on the frame.
+Solution:
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class CircleDrawer extends JFrame {
+ private int x, y;
+ private int radius = 20;
+ public CircleDrawer() {
+ setTitle("Concentric Circles Drawer");
+ setSize(400, 400);
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ addMouseListener(new MouseAdapter() {
+ @Override
+ public void mouseClicked(MouseEvent e) {
+ x = e.getX();
+ y = e.getY();
+Slip24
+ repaint();
+ }
+ });
+ addWindowListener(new WindowAdapter() {
+ @Override
+ public void windowClosing(WindowEvent e) {
+ System.exit(0);
+ }
+ });
+ }
+ @Override
+ public void paint(Graphics g) {
+ super.paint(g);
+ g.setColor(Color.BLUE);
+ g.drawOval(x - radius, y - radius, 2 * radius, 2 * radius);
+ g.drawOval(x - 2 * radius, y - 2 * radius, 4 * radius, 4 * radius);
+ g.drawOval(x - 3 * radius, y - 3 * radius, 6 * radius, 6 * radius);
+ }
+ public static void main(String[] args) {
+ SwingUtilities.invokeLater(() -> {
+ CircleDrawer circleDrawer = new CircleDrawer();
+ circleDrawer.setVisible(true);
+ });
+ }
+}
+Slip25
+Q1) Create a class Student(rollno, name ,class, per), to read student information from the
+console and display them (Using BufferedReader class)
+Solution
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+class Student {
+ private int rollNo;
+ private String name;
+ private String className;
+ private double percentage;
+ public Student(int rollNo, String name, String className, double percentage) {
+ this.rollNo = rollNo;
+ this.name = name;
+ this.className = className;
+ this.percentage = percentage;
+ }
+ public void displayInfo() {
+ System.out.println("Roll No: " + rollNo);
+ System.out.println("Name: " + name);
+ System.out.println("Class: " + className);
+ System.out.println("Percentage: " + percentage + "%");
+ }
+ public static void main(String[] args) throws IOException {
+ BufferedReader reader = new BufferedReader(new
+InputStreamReader(System.in));
+Slip25
+ System.out.print("Enter Roll No: ");
+ int rollNo = Integer.parseInt(reader.readLine());
+ System.out.print("Enter Name: ");
+ String name = reader.readLine();
+ System.out.print("Enter Class: ");
+ String className = reader.readLine();
+ System.out.print("Enter Percentage: ");
+ double percentage = Double.parseDouble(reader.readLine());
+ Student student = new Student(rollNo, name, className, percentage);
+ System.out.println("\nStudent Information:");
+ student.displayInfo();
+ // Close the reader
+ reader.close();
+ }
+}
+Q2) Create the following GUI screen using appropriate layout manager. Accept the
+name, class, hobbies from the user and display the selected options in a textbox.
+Slip25
+Solution:
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class Swing2 extends JFrame implements ActionListener
+{
+ JLabel l1,l2,l3;
+ JButton b;
+ JRadioButton r1,r2,r3;
+ JCheckBox c1,c2,c3;
+ JTextField t1,t2;
+ ButtonGroup b1;
+ JPanel p1,p2;
+ static int cnt;
+ private StringBuffer s1=new StringBuffer();
+
+ Swing2()
+ {
+Slip25
+
+ b1=new ButtonGroup();
+ p1=new JPanel();
+ p2=new JPanel();
+ b=new JButton("Clear");
+ b.addActionListener(this);
+
+ r1=new JRadioButton("FY");
+ r2=new JRadioButton("SY");
+ r3=new JRadioButton("TY");
+
+ b1.add(r1);
+ b1.add(r2);
+ b1.add(r3);
+ r1.addActionListener(this);
+ r2.addActionListener(this);
+ r3.addActionListener(this);
+
+ c1=new JCheckBox("Music");
+ c2=new JCheckBox("Dance");
+ c3=new JCheckBox("Sports");
+
+ c1.addActionListener(this);
+ c2.addActionListener(this);
+ c3.addActionListener(this);
+
+ l1=new JLabel("Your Name");
+ l2=new JLabel("Your Class");
+ l3=new JLabel("Your Hobbies");
+ t1=new JTextField(20);
+Slip25
+ t2=new JTextField(30);
+
+ p1.setLayout(new GridLayout(5,2));
+ p1.add(l1);p1.add(t1);
+ p1.add(l2);p1.add(l3);
+ p1.add(r1);p1.add(c1);
+ p1.add(r2); p1.add(c2);
+ p1.add(r3);p1.add(c3);
+
+ p2.setLayout(new FlowLayout());
+ p2.add(b);
+ p2.add(t2);
+
+ setLayout(new BorderLayout());
+ add(p1,BorderLayout.NORTH);
+ add(p2,BorderLayout.EAST);
+ setSize(400,200);
+ setVisible(true);
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ }
+
+ public void actionPerformed(ActionEvent e)
+ {
+
+ if(e.getSource()==r1)
+ {
+ cnt++;
+ if(cnt==1)
+ {
+Slip25
+ String s =t1.getText();
+ s1.append("Name = ");
+ s1.append(s);
+ }
+ s1.append(" Class = FY");
+ }
+ else if(e.getSource()==r2)
+ {
+ cnt++;
+ if(cnt==1)
+ {
+ String s =t1.getText();
+ s1.append("Name = ");
+ s1.append(s);
+ }
+ s1.append(" Class = SY");
+ }
+ else if(e.getSource()==r3)
+ {
+ cnt++;
+ if(cnt==1)
+ {
+ String s =t1.getText();
+ s1.append("Name = ");
+ s1.append(s);
+ }
+ s1.append(" Class = TY");
+ }
+
+Slip25
+ else if(e.getSource()==c1)
+ {
+ s1.append(" Hobbies = Music");
+ }
+ else if(e.getSource()==c2)
+ {
+ s1.append(" Hobbies = Dance");
+ }
+ else if(e.getSource()==c3)
+ {
+ s1.append(" Hobbies = Sports");
+ }
+
+ t2.setText(new String(s1));
+
+ if(e.getSource()==b)
+ {
+ t2.setText(" ");
+ t1.setText(" ");
+ }
+
+ }
+
+ public static void main(String arg[])
+ {
+ Swing2 s=new Swing2();
+
+ }
+}
+Slip25
+Solution2 of question2
+import java.io. *;
+class Except
+{
+public static void main(String args[])throws Exception
+ {
+ InputStreamReader r=new
+ InputStreamReader(System.in);
+ BufferedReader br=new BufferedReader(r);
+ System.out.println("Enter name:");
+ String name = br.readLine();
+ System.out.println("Enter roll no :");
+ String number = br.readLine();
+ System.out.println("Enter marks :");
+ String marks = br.readLine();
+ System.out.println("name:"+name);
+ System.out.println("Roll No.:"+number);
+ System.out.println("Marks:"+marks);
+ }
+}
+ 

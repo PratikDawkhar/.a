@@ -1,0 +1,2417 @@
+Slip 1:
+
+Q.1) Write the HTML code for generating the form as shown below. Apply the internal CSS to 
+following form to change the font size of the heading to 6pt and change the color to red and also 
+change the background color to yellow.
+-->
+<HTML>
+<BODY>
+<style>
+body 
+{
+  	background-color: yellow;
+}
+.p
+{
+  font-size: 6pt;
+  color:red;
+}
+</style>
+<div class='p'>
+Project Name :<INPUT type=text name=b><BR><BR>
+
+Assigned To :<INPUT type=text name=a><BR><BR>
+Start date :<INPUT type=date name=d><BR><BR>
+End date :<INPUT type=date name=e><BR><BR>
+Priority<input type="radio" name="p" value="high"> High
+<input type="radio" name="p" value="avg"> Average
+<input type="radio" name="p" value="low"> Low
+<br>
+<textarea rows="4" cols="20" name="address" id="address"></textarea>
+<br>
+
+<INPUT type=submit name=submit value="Submit">
+<INPUT type=submit name=submit value="Clear"><BR>
+</FORM>
+
+slip2
+Q.1) Create HTML5 page with following specifications
+i) Title should be about your City.
+ii) Color the background by Pink color.
+iii) Place your city name at the top of page in large text and in blue color.
+iv) Add names of the landmarks in your city, each in different color, style and font
+v) Add any image at the bottom. (Use inline CSS to format the web page)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About My City</title>
+</head>
+<body style="background-color: pink; text-align: center;">
+
+    <h1 style="color: blue;">Welcome to My City</h1>
+
+    <h2 style="color: green; font-style: italic; font-family: 'Arial', sans-serif;">Landmarks:</h2>
+
+    <ul>
+        <li style="color: purple; font-weight: bold; font-family: 'Georgia', serif;">City Park</li>
+        <li style="color: red; font-style: oblique; font-family: 'Verdana', sans-serif;">Historical Museum</li>
+        <li style="color: brown; font-weight: bold; font-family: 'Times New Roman', serif;">Shopping Mall</li>
+        <li style="color: teal; font-style: italic; font-family: 'Courier New', monospace;">Art Gallery</li>
+    </ul>
+
+    <img src="city_image.jpg" alt="City Image" style="max-width: 100%;">
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip2->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# Calculate mean of 'salary' and 'age' columns
+salary_mean = data['salary'].mean()
+age_mean = data['age'].mean()
+
+# Fill missing values with mean
+data['salary'].fillna(salary_mean, inplace=True)
+data['age'].fillna(age_mean, inplace=True)
+
+# Save the modified data back to a new CSV file
+data.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Missing values replaced and data saved to Modified_Data.csv")
+============================================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# Calculate mean of 'salary' and 'age' columns
+salary_mean = data['salary'].mean()
+age_mean = data['age'].mean()
+
+# Fill missing values with mean
+data['salary'].fillna(salary_mean, inplace=True)
+data['age'].fillna(age_mean, inplace=True)
+
+# Save the modified data back to a new CSV file
+data.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Missing values replaced and data saved to Modified_Data.csv")
+######################################################################################################
+slip3
+Write a program using html with following CSS specifications-
+i.The background colour of the company name should be in green.
+ii.The text colour of the company name should be red.
+iii.The heading should be large –with font ''comic sans ms''
+iv.The description of the company should be displayed in blue color in a paragraph.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information</title>
+    <style>
+        .company-name {
+            background-color: green;
+            color: red;
+            padding: 10px;
+            font-size: 2em;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        .company-description {
+            color: blue;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="company-name">
+    OpenAI Technologies
+</div>
+
+<h1>Company Information</h1>
+
+<p class="company-description">
+    OpenAI is an artificial intelligence research laboratory consisting of the for-profit company OpenAI LP and its non-profit parent company, OpenAI Inc. The company is focused on creating and promoting friendly AI for the betterment of humanity.
+</p>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip3->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Create box plots
+plt.figure(figsize=(12, 8))
+
+# Sepal Length
+plt.subplot(2, 2, 1)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['sepal_length'], 
+             iris_data[iris_data['species']=='versicolor']['sepal_length'], 
+             iris_data[iris_data['species']=='virginica']['sepal_length']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Sepal Length')
+
+# Sepal Width
+plt.subplot(2, 2, 2)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['sepal_width'], 
+             iris_data[iris_data['species']=='versicolor']['sepal_width'], 
+             iris_data[iris_data['species']=='virginica']['sepal_width']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Sepal Width')
+
+# Petal Length
+plt.subplot(2, 2, 3)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['petal_length'], 
+             iris_data[iris_data['species']=='versicolor']['petal_length'], 
+             iris_data[iris_data['species']=='virginica']['petal_length']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Petal Length')
+
+# Petal Width
+plt.subplot(2, 2, 4)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['petal_width'], 
+             iris_data[iris_data['species']=='versicolor']['petal_width'], 
+             iris_data[iris_data['species']=='virginica']['petal_width']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Petal Width')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+====================================================================================
+B->
+import pandas as pd
+
+# Assuming you have a dataset named 'heights_weights.csv'
+# If your dataset has a different name, adjust the filename accordingly
+data = pd.read_csv('heights_weights.csv')
+
+# View basic statistical details
+statistical_details = data.describe()
+
+# Display the details
+print(statistical_details)
+###################################################################################
+slip4
+Write a HTML code, which generate the following output
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Books</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>Item No</th>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <th rowspan="3">List of Books</th>
+    </tr>
+    <tr>
+        <th>Item Name</th>
+        <td>Programming in Python</td>
+        <td>Programming in Java</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>Rs.</td>
+        <td>Rs.</td>
+    </tr>
+    <tr>
+        <th>Paise</th>
+        <td>500</td>
+        <td>345</td>
+    </tr>
+    <tr>
+        <th colspan="3">00</th>
+    </tr>
+</table>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip4->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black')
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===========================================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('User_Data.csv')
+
+# Print the shape of the data (number of rows and columns)
+print(f"Shape of the data: {data.shape}")
+
+# Print the number of rows and columns
+num_rows = data.shape[0]
+num_columns = data.shape[1]
+print(f"Number of rows: {num_rows}")
+print(f"Number of columns: {num_columns}")
+
+# Print the data types of each column
+print("Data types:")
+print(data.dtypes)
+
+# Print the feature names (column names)
+print("Feature names:")
+print(data.columns)
+
+# Print the description of the data
+print("Description:")
+print(data.describe())
+##############################################################################
+slip7
+Q.1) Design HTML 5 Page Using CSS Which Displays the following Navigation Bar
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<div style="padding: 20px;">
+    <h1>Welcome to Our Website</h1>
+    <p>This is a sample HTML5 page with a navigation bar.</p>
+</div>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip7->
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# a. Apply OneHot encoding on Country column
+data_with_onehot = pd.get_dummies(data, columns=['Country'], prefix=['Country'])
+
+# b. Apply Label encoding on purchased column
+label_encoder = LabelEncoder()
+data_with_onehot['Purchased'] = label_encoder.fit_transform(data['Purchased'])
+
+# Save the modified data back to a new CSV file
+data_with_onehot.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("OneHot encoding and Label encoding applied. Data saved to Modified_Data.csv")
+#################################################################################
+slip8
+Q.1) Design an HTML form to accept two strings from the user. Write a PHP script for the
+following.
+a. Find whether the small string appears at the start of the large string.
+b. Find the position of the small string in the big string.
+c. Compare both the string for first n characters, also the comparison should not be case
+sensitive.
+**html**
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<form method="post" action="string_operations.php">
+    Enter first string: <input type="text" name="string1" required><br>
+    Enter second string: <input type="text" name="string2" required><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+**php**
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $string1 = $_POST["string1"];
+    $string2 = $_POST["string2"];
+
+    // a. Find whether the small string appears at the start of the large string.
+    $start_check = (strpos($string1, $string2) === 0) ? "Yes" : "No";
+
+    // b. Find the position of the small string in the big string.
+    $position = strpos($string1, $string2);
+
+    // c. Compare both the string for first n characters, case insensitive.
+    $n = 3; // Change 'n' to desired number of characters to compare
+    $comparison = (strncasecmp($string1, $string2, $n) === 0) ? "Match" : "No Match";
+
+    echo "<h2>Results:</h2>";
+    echo "a. Does the small string appear at the start of the large string? $start_check<br>";
+    echo "b. Position of the small string in the big string: $position<br>";
+    echo "c. Comparison of first $n characters (case insensitive): $comparison<br>";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip8->
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+# Read the CSV file
+data = pd.read_csv('winequality-red.csv')
+
+# Select the features you want to standardize (exclude the target variable if applicable)
+features = data.drop(columns=['quality'])
+
+# Initialize the StandardScaler
+scaler = StandardScaler()
+
+# Standardize the features
+standardized_features = scaler.fit_transform(features)
+
+# Create a new DataFrame with the standardized features
+standardized_data = pd.DataFrame(standardized_features, columns=features.columns)
+
+# Save the standardized data back to a new CSV file
+standardized_data.to_csv('Standardized_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Data standardized and saved to Standardized_Data.csv")
+####################################################################################
+slip9
+Q.1) Write a PHP script for the following: Design a form having a text box and a drop down list
+containing any 3 separators(e.g. #, |, %, @, ! or comma) accept a strings from the user and also a
+separator.
+a. Split the string into separate words using the given separator.
+b. Replace all the occurrences of separator in the given string with some other separator.
+c. Find the last word in the given string.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<form method="post" action="">
+    Enter a string: <input type="text" name="user_string" required><br>
+    Select a separator:
+    <select name="separator" required>
+        <option value="#">#</option>
+        <option value="|">|</option>
+        <option value="%">%</option>
+    </select><br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_string = $_POST["user_string"];
+    $separator = $_POST["separator"];
+
+    // a. Split the string into separate words using the given separator.
+    $words = explode($separator, $user_string);
+
+    // b. Replace all the occurrences of separator with another separator.
+    $new_separator = '*'; // Replace with any other separator
+    $modified_string = str_replace($separator, $new_separator, $user_string);
+
+    // c. Find the last word in the given string.
+    $last_word = end($words);
+
+    echo "<h2>Results:</h2>";
+    echo "a. Separate words: " . implode(", ", $words) . "<br>";
+    echo "b. Modified string: $modified_string<br>";
+    echo "c. Last word: $last_word<br>";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip9->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+=================================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+=============================================================
+C->
+import pandas as pd
+
+# a) Describing the dataset
+data = pd.read_csv('winequality-red.csv')
+description = data.describe()
+
+# b) Shape of the dataset
+shape = data.shape
+
+# c) Display first 3 rows from dataset
+first_3_rows = data.head(3)
+
+print("a) Describing the dataset:")
+print(description)
+
+print("\nb) Shape of the dataset:")
+print(shape)
+
+print("\nc) Display first 3 rows from dataset:")
+print(first_3_rows)
+###########################################################################
+slip10
+Q.1) Write a script to accept two integers(Use html form having 2 textboxes).
+Write a PHP script to,
+a. Find mod of the two numbers.
+b. Find the power of first number raised to the second.
+c. Find the sum of first n numbers (considering first number as n)
+d. Find the factorial of second number.
+(Write separate function for each of the above operations.)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Operations</title>
+</head>
+<body>
+
+<form method="post" action="">
+    Enter first number: <input type="number" name="num1" required><br>
+    Enter second number: <input type="number" name="num2" required><br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+function find_mod($num1, $num2) {
+    return $num1 % $num2;
+}
+
+function find_power($num1, $num2) {
+    return pow($num1, $num2);
+}
+
+function find_sum($num1) {
+    return ($num1 * ($num1 + 1)) / 2;
+}
+
+function find_factorial($num2) {
+    if ($num2 <= 1) {
+        return 1;
+    } else {
+        return $num2 * find_factorial($num2 - 1);
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $num1 = $_POST["num1"];
+    $num2 = $_POST["num2"];
+
+    $mod_result = find_mod($num1, $num2);
+    $power_result = find_power($num1, $num2);
+    $sum_result = find_sum($num1);
+    $factorial_result = find_factorial($num2);
+
+    echo "<h2>Results:</h2>";
+    echo "a. Mod of $num1 and $num2: $mod_result<br>";
+    echo "b. Power of $num1 raised to $num2: $power_result<br>";
+    echo "c. Sum of first $num1 numbers: $sum_result<br>";
+    echo "d. Factorial of $num2: $factorial_result<br>";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip10->
+import pandas as pd
+
+# Assuming you have a DataFrame 'data' with 'Height' and 'Weight' columns
+
+# Sample data
+data = {
+    'Height': [65, 68, 70, 60, 74, 72],
+    'Weight': [120, 150, 180, 110, 200, 190]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Calculate column-wise mean
+mean_values = df.mean()
+
+# Calculate column-wise median
+median_values = df.median()
+
+# Display the results
+print("Column-wise Mean:")
+print(mean_values)
+
+print("\nColumn-wise Median:")
+print(median_values)
+===============================================
+B->
+def manhattan_distance(point1, point2):
+    return abs(point1[0] - point2[0]) + abs(point1[1] - point2[1])
+
+def sum_manhattan_distances(points):
+    n = len(points)
+    total_distance = 0
+
+    for i in range(n):
+        for j in range(i+1, n):
+            total_distance += manhattan_distance(points[i], points[j])
+
+    return total_distance
+
+# Example points
+points = [(1, 2), (4, 6), (7, 3), (9, 5)]
+
+# Calculate and print the sum of Manhattan distances
+result = sum_manhattan_distances(points)
+print(f"The sum of Manhattan distances between all pairs of points is: {result}")
+#########################################################################
+slip12
+Write a PHP script for the following: Design a form to accept two numbers from the user.
+Give options to choose the arithmetic operation (use radio buttons). Display the result on the next
+form. (Use the concept of function and default parameters. Use ‘include’ construct or require
+statement)
+**html**
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+
+<form method="post" action="slip12.php">
+    Enter first number: <input type="number" name="num1" required><br>
+    Enter second number: <input type="number" name="num2" required><br>
+
+    Choose operation:
+    <input type="radio" name="operation" value="addition" checked> Addition
+    <input type="radio" name="operation" value="subtraction"> Subtraction
+    <input type="radio" name="operation" value="multiplication"> Multiplication
+    <input type="radio" name="operation" value="division"> Division
+
+    <input type="submit" value="Calculate">
+</form>
+
+</body>
+</html>
+**php**
+<?php
+$num1 = $_POST["num1"];
+$num2 = $_POST["num2"];
+$operation = $_POST["operation"];
+
+function calculate($num1, $num2, $operation) {
+    switch ($operation) {
+        case 'addition':
+            return $num1 + $num2;
+        case 'subtraction':
+            return $num1 - $num2;
+        case 'multiplication':
+            return $num1 * $num2;
+        case 'division':
+            if ($num2 != 0) {
+                return $num1 / $num2;
+            } else {
+                return "Division by zero is not allowed.";
+            }
+        default:
+            return "Invalid operation.";
+    }
+}
+
+$result = calculate($num1, $num2, $operation);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+
+<h2>Result</h2>
+<p><?php echo "Result of $operation: $result"; ?></p>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip12->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+================================================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'John', 'Bob', 'Jane', 'Eve', 'Alice', '', None, 'Bob'],
+    'salary': [50000, 60000, None, 65000, 70000, 50000, 55000, 60000, None, 70000, 75000, 80000, 55000],
+    'department': ['HR', 'IT', 'Sales', 'HR', 'IT', 'HR', 'Sales', 'IT', 'IT', 'Sales', 'IT', 'HR', 'Sales']
+}
+
+df = pd.DataFrame(data)
+
+# Print original DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Drop null and empty values
+df = df.dropna(subset=['name', 'salary', 'department']).replace('', None)
+
+# Print modified DataFrame
+print("\nModified DataFrame:")
+print(df)
+################################################################################
+slip13
+Write a PHP script to create a chess board using CSS on table cells.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chessboard</title>
+    <style>
+        .chessboard {
+            border-collapse: collapse;
+            border: 2px solid #000;
+            margin: auto;
+        }
+
+        .chessboard td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .white {
+            background-color: #f0d9b5;
+        }
+
+        .black {
+            background-color: #b58863;
+        }
+    </style>
+</head>
+<body>
+
+<table class="chessboard">
+    <?php
+    $size = 8; // 8x8 chessboard
+    for ($row = 1; $row <= $size; $row++) {
+        echo "<tr>";
+        for ($col = 1; $col <= $size; $col++) {
+            $class = ($row + $col) % 2 == 0 ? "white" : "black";
+            echo "<td class='$class'></td>";
+        }
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip13->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Define colors for each species
+colors = {'setosa': 'red', 'versicolor': 'green', 'virginica': 'blue'}
+
+# Create a scatter plot
+plt.figure(figsize=(10, 6))
+
+for species, color in colors.items():
+    species_data = iris_data[iris_data['species'] == species]
+    plt.scatter(species_data['petal_length'], species_data['petal_width'], c=color, label=species)
+
+plt.title('Relationship between Petal Length and Petal Width')
+plt.xlabel('Petal Length (cm)')
+plt.ylabel('Petal Width (cm)')
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+========================================================
+B->
+import numpy as np
+
+# Assuming you have a flattened array 'arr'
+# If you have a different array, replace 'arr' with your array
+
+# Example flattened array
+arr = np.array([1, 5, 3, 8, 2, 6, 7, 4])
+
+# Find maximum and minimum values
+max_value = np.max(arr)
+min_value = np.min(arr)
+
+print(f"Maximum value: {max_value}")
+print(f"Minimum value: {min_value}")
+###################################################################################
+slip15
+Q.1) Design a form to accept string from the user and perform the following operations
+a. To select first 5 words from the string
+b. Convert the given string to lowercase and then to Title case.
+c. Pad the given string with “*” from left and right both the sides.
+d. Remove the leading whitespaces from the given string.
+e. Find the reverse of given string.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<form method="post" action="">
+    Enter a string: <input type="text" name="user_string" required><br>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_string = $_POST["user_string"];
+
+    // a. To select first 5 words from the string
+    $words = explode(" ", $user_string);
+    $first_five_words = array_slice($words, 0, 5);
+
+    // b. Convert the given string to lowercase and then to Title case.
+    $lowercase_string = strtolower($user_string);
+    $titlecase_string = ucwords($lowercase_string);
+
+    // c. Pad the given string with "*" from left and right both the sides.
+    $padded_string = "*" . $user_string . "*";
+
+    // d. Remove the leading whitespaces from the given string.
+    $trimmed_string = trim($user_string);
+
+    // e. Find the reverse of given string.
+    $reversed_string = strrev($user_string);
+
+    echo "<h2>Result:</h2>";
+    echo "a. First 5 words: " . implode(" ", $first_five_words) . "<br>";
+    echo "b. Lowercase: $lowercase_string<br>";
+    echo "   Titlecase: $titlecase_string<br>";
+    echo "c. Padded string: $padded_string<br>";
+    echo "d. Trimmed string: $trimmed_string<br>";
+    echo "e. Reversed string: $reversed_string<br>";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip15->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===============================================================
+B->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+###########################################################################################
+slip16
+Q.1) Write a PHP script for the following: Design a form to accept the marks of 5 different
+subjects of a student, having serial number, subject name & marks out of 100. Display the
+result in the tabular format which will have total, percentage and grade. Use only 3 text
+boxes.(Use array of form parameters)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result</title>
+</head>
+<body>
+
+<form method="post" action="">
+    <?php
+    $subjects = ['Subject 1', 'Subject 2', 'Subject 3', 'Subject 4', 'Subject 5'];
+
+    foreach ($subjects as $index => $subject) {
+        echo "$subject Marks: <input type='text' name='marks[$index]' required><br>";
+    }
+    ?>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $marks = $_POST['marks'];
+    $total_marks = array_sum($marks);
+    $percentage = $total_marks / (count($marks) * 100) * 100;
+
+    // Calculate grade
+    if ($percentage >= 90) {
+        $grade = 'A+';
+    } elseif ($percentage >= 80) {
+        $grade = 'A';
+    } elseif ($percentage >= 70) {
+        $grade = 'B';
+    } elseif ($percentage >= 60) {
+        $grade = 'C';
+    } elseif ($percentage >= 50) {
+        $grade = 'D';
+    } else {
+        $grade = 'F';
+    }
+
+    echo "<h2>Result:</h2>";
+    echo "<table border='1'>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>";
+    foreach ($marks as $index => $mark) {
+        echo "<tr>
+                <td>{$subjects[$index]}</td>
+                <td>$mark</td>
+              </tr>";
+    }
+    echo "</table>";
+
+    echo "<br>Total Marks: $total_marks<br>";
+    echo "Percentage: $percentage%<br>";
+    echo "Grade: $grade";
+}
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip16->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(12, 5))
+
+# Pie Chart
+plt.subplot(1, 2, 1)
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+# Bar Chart
+plt.subplot(1, 2, 2)
+plt.bar(subjects, marks, color=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks')
+plt.xlabel('Subjects')
+plt.ylabel('Marks')
+
+plt.tight_layout()
+plt.show()
+=============================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame for students' information
+data = {
+    'Name': ['John', 'Jane', 'Bob', 'Alice', 'Eve'],
+    'Graduation Percentage': [85, 90, 75, 88, 92],
+    'Age': [22, 23, 21, 24, 22]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate average age and average graduation percentage
+average_age = df['Age'].mean()
+average_percentage = df['Graduation Percentage'].mean()
+
+print(f"Average Age of Students: {average_age}")
+print(f"Average Graduation Percentage: {average_percentage}")
+###################################################################
+slip17
+Q.1) Write a PHP script to sort the following associative array :
+array(“Sagar"=>"31","Vicky"=>"41","Leena"=>"39","Ramesh"=>"40") in
+a) ascending order sort by Value
+b) ascending order sort by Key
+c) descending order sorting by Value
+d) descending order sorting by Key
+<?php
+$associative_array = array("Sagar" => "31", "Vicky" => "41", "Leena" => "39", "Ramesh" => "40");
+
+// a) Ascending order sort by Value
+asort($associative_array);
+echo "a) Ascending order sort by Value:\n";
+print_r($associative_array);
+
+// b) Ascending order sort by Key
+ksort($associative_array);
+echo "\nb) Ascending order sort by Key:\n";
+print_r($associative_array);
+
+// c) Descending order sort by Value
+arsort($associative_array);
+echo "\nc) Descending order sort by Value:\n";
+print_r($associative_array);
+
+// d) Descending order sort by Key
+krsort($associative_array);
+echo "\nd) Descending order sort by Key:\n";
+print_r($associative_array);
+?>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip17->
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+
+# Load the Iris dataset
+iris = load_iris()
+data = iris.data
+target = iris.target
+
+# Define feature names
+feature_names = iris.feature_names
+
+# Select two features for comparison (e.g., sepal length and sepal width)
+feature1 = 0  # Sepal length
+feature2 = 1  # Sepal width
+
+# Create scatter plot
+plt.figure(figsize=(8, 6))
+plt.scatter(data[target == 0, feature1], data[target == 0, feature2], c='r', label='Setosa', alpha=0.7)
+plt.scatter(data[target == 1, feature1], data[target == 1, feature2], c='g', label='Versicolor', alpha=0.7)
+plt.scatter(data[target == 2, feature1], data[target == 2, feature2], c='b', label='Virginica', alpha=0.7)
+
+# Set labels and title
+plt.xlabel(feature_names[feature1])
+plt.ylabel(feature_names[feature2])
+plt.title(f'Scatter Plot: {feature_names[feature1]} vs {feature_names[feature2]}')
+
+# Add legend
+plt.legend()
+
+# Show the plot
+plt.show()
+=====================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'Mark', 'Emily', 'David', 'Sarah', 'Michael'],
+    'Age': [25, 30, 28, 27, 32, 29, 26, 31, 33, 30],
+    'Salary': [60000, 70000, 65000, 75000, 80000, 70000, 72000, 65000, 68000, 75000],
+    'Department': ['HR', 'IT', 'Sales', 'IT', 'Finance', 'IT', 'HR', 'Finance', 'Sales', 'IT']
+}
+
+df = pd.DataFrame(data)
+
+# Print the DataFrame
+print(df)
+################################################################################
+slip18
+Q.1) Write a menu driven program to perform the following operations on an associative array
+a. Reverse the order of each element’s key-value pair.
+b. Traverse the element in an array in random order.
+c. Convert the array elements into individual variables.
+d. Display the elements of an array along with key.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Associative Array Operations</title>
+</head>
+<body>
+    <form method="post" action="">
+        Select Operation:
+        <select name="operation">
+            <option value="reverse">Reverse Key-Value Pairs</option>
+            <option value="random">Traverse in Random Order</option>
+            <option value="variables">Convert to Variables</option>
+            <option value="display">Display with Keys</option>
+        </select><br>
+        Enter Associative Array (comma separated key-value pairs): <input type="text" name="array_input"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $operation = $_POST["operation"];
+        $array_input = $_POST["array_input"];
+        $assoc_array = [];
+
+        // Convert input string to associative array
+        $array_pairs = explode(",", $array_input);
+        foreach ($array_pairs as $pair) {
+            list($key, $value) = explode(":", $pair);
+            $assoc_array[trim($key)] = trim($value);
+        }
+
+        switch ($operation) {
+            case 'reverse':
+                $reversed_array = array_flip($assoc_array);
+                echo "<h2>Reversed Key-Value Pairs:</h2>";
+                echo "<pre>";
+                print_r($reversed_array);
+                echo "</pre>";
+                break;
+            case 'random':
+                $keys = array_keys($assoc_array);
+                shuffle($keys);
+                $random_array = [];
+                foreach ($keys as $key) {
+                    $random_array[$key] = $assoc_array[$key];
+                }
+                echo "<h2>Traversed in Random Order:</h2>";
+                echo "<pre>";
+                print_r($random_array);
+                echo "</pre>";
+                break;
+            case 'variables':
+                extract($assoc_array);
+                echo "<h2>Converted to Variables:</h2>";
+                echo "Variable 'key' has value '$key'<br>";
+                echo "Variable 'value' has value '$value'<br>";
+                // Add more variables as needed
+                break;
+            case 'display':
+                echo "<h2>Display with Keys:</h2>";
+                echo "<pre>";
+                print_r($assoc_array);
+                echo "</pre>";
+                break;
+            default:
+                echo "Invalid operation selected.";
+        }
+    }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip18
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Read the Iris dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Define the features and species
+features = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
+species = ['setosa', 'versicolor', 'virginica']
+
+# Create box plots for each feature across the three species
+plt.figure(figsize=(12, 8))
+
+for i, feature in enumerate(features, 1):
+    plt.subplot(2, 2, i)
+    plt.boxplot([iris_data[iris_data['species'] == sp][feature] for sp in species], labels=species)
+    plt.title(f'Box Plot of {feature}')
+    plt.xlabel('Species')
+    plt.ylabel(feature)
+
+plt.tight_layout()
+plt.show()
+===============================================================
+B->
+import pandas as pd
+
+# Load the dataset into a DataFrame
+df = pd.read_csv('heights_weights.csv')
+
+# Print the first row
+print("First Row:")
+print(df.head(1))
+
+# Print the last 5 rows
+print("\nLast 5 Rows:")
+print(df.tail(5))
+
+# Print random 10 rows
+print("\nRandom 10 Rows:")
+print(df.sample(10))
+##############################################################################
+slip20
+Q.1) Write a menu driven program to perform the following operations on associative arrays:
+a) Split an array into chunks
+b) Sort the array by values without changing the keys.
+c) Filter the even elements from an array.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Associative Array Operations</title>
+</head>
+<body>
+    <form method="post" action="">
+        Select Operation:
+        <select name="operation">
+            <option value="split">Split Array</option>
+            <option value="sort">Sort by Values</option>
+            <option value="filter">Filter Even Elements</option>
+        </select><br>
+        Enter Associative Array (comma separated key-value pairs): <input type="text" name="array_input"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $operation = $_POST["operation"];
+        $array_input = $_POST["array_input"];
+        $assoc_array = [];
+
+        // Convert input string to associative array
+        $array_pairs = explode(",", $array_input);
+        foreach ($array_pairs as $pair) {
+            list($key, $value) = explode(":", $pair);
+            $assoc_array[trim($key)] = trim($value);
+        }
+
+        switch ($operation) {
+            case 'split':
+                $chunks = array_chunk($assoc_array, 2, true);
+                echo "<h2>Split Array:</h2>";
+                echo "<pre>";
+                print_r($chunks);
+                echo "</pre>";
+                break;
+            case 'sort':
+                asort($assoc_array);
+                echo "<h2>Sorted Array (by Values):</h2>";
+                echo "<pre>";
+                print_r($assoc_array);
+                echo "</pre>";
+                break;
+            case 'filter':
+                $filtered_array = array_filter($assoc_array, function($value) {
+                    return $value % 2 == 0;
+                });
+                echo "<h2>Filtered Even Elements:</h2>";
+                echo "<pre>";
+                print_r($filtered_array);
+                echo "</pre>";
+                break;
+            default:
+                echo "Invalid operation selected.";
+        }
+    }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip20
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+=======================================================================
+B->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Add two outliers
+random_data = np.append(random_data, [150, 160])
+
+# Box Plot with outliers
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot with Outliers', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+######################################################
+slip21
+Q.1) Create an array of 15 high temperatures, approximating the weather for a spring month,
+then find the average high temp, the five warmest high temps Display the result on the browser
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Weather Stats</title>
+</head>
+<body>
+
+<?php
+// Create an array of 15 high temperatures
+$highTemperatures = [18, 20, 22, 25, 23, 21, 19, 24, 26, 28, 27, 22, 20, 25, 26];
+
+// Calculate the average high temperature
+$averageHighTemp = array_sum($highTemperatures) / count($highTemperatures);
+
+// Find the five warmest high temperatures
+arsort($highTemperatures);
+$fiveWarmestTemps = array_slice($highTemperatures, 0, 5);
+
+// Display the results on the browser
+echo "<h2>Spring Weather Stats</h2>";
+echo "<p>Average High Temperature: " . number_format($averageHighTemp, 2) . "°C</p>";
+echo "<p>Five Warmest High Temperatures: " . implode('°C, ', $fiveWarmestTemps) . "°C</p>";
+?>
+
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip21
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import the dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of the three species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.show()
+==============================================================================
+B->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import the dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of the three species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.show()
+#################################################################
+slip22
+Q.1) Write a menu driven program to perform the following queue related operations
+a) Insert an element in queue
+b) Delete an element from queue
+c) Display the contents of queue
+<?php
+
+class Queue
+{
+    private $queue;
+
+    public function __construct()
+    {
+        $this->queue = [];
+    }
+
+    public function enqueue($element)
+    {
+        $this->queue[] = $element;
+        echo "Element $element enqueued to the queue.<br>";
+    }
+
+    public function dequeue()
+    {
+        if (!$this->isEmpty()) {
+            $removedElement = array_shift($this->queue);
+            echo "Element $removedElement dequeued from the queue.<br>";
+        } else {
+            echo "Queue is empty. Cannot dequeue.<br>";
+        }
+    }
+
+    public function display()
+    {
+        if (!$this->isEmpty()) {
+            echo "Queue Contents: " . implode(', ', $this->queue) . "<br>";
+        } else {
+            echo "Queue is empty.<br>";
+        }
+    }
+
+    public function isEmpty()
+    {
+        return empty($this->queue);
+    }
+}
+
+function main()
+{
+    $queue = new Queue();
+
+    while (true) {
+        echo "<br>Queue Operations:<br>";
+        echo "1. Enqueue<br>";
+        echo "2. Dequeue<br>";
+        echo "3. Display<br>";
+        echo "4. Exit<br>";
+
+        $choice = readline("Enter your choice (1/2/3/4): ");
+
+        switch ($choice) {
+            case '1':
+                $element = readline("Enter the element to enqueue: ");
+                $queue->enqueue($element);
+                break;
+            case '2':
+                $queue->dequeue();
+                break;
+            case '3':
+                $queue->display();
+                break;
+            case '4':
+                echo "Exiting the program. Goodbye!<br>";
+                exit();
+            default:
+                echo "Invalid choice. Please enter a valid option (1/2/3/4).<br>";
+        }
+    }
+}
+
+main();
+
+?>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip22
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+
+# Load the dataset
+data = pd.read_csv('winequality-red.csv')
+
+# Separate the features (X) from the target variable (y) if needed
+# Assuming the target variable is in a column named 'quality'
+X = data.drop('quality', axis=1)
+y = data['quality']
+
+# a. Rescaling using MinMaxScaler
+scaler = MinMaxScaler()
+X_rescaled = scaler.fit_transform(X)
+
+# b. Standardizing Data
+std_scaler = StandardScaler()
+X_standardized = std_scaler.fit_transform(X)
+
+# c. Normalizing Data
+normalizer = Normalizer()
+X_normalized = normalizer.fit_transform(X)
+
+# Print the results
+print("Rescaled Data:")
+print(X_rescaled[:5])  # Printing first 5 rows for demonstration
+
+print("\nStandardized Data:")
+print(X_standardized[:5])  # Printing first 5 rows for demonstration
+
+print("\nNormalized Data:")
+print(X_normalized[:5])  # Printing first 5 rows for demonstration
+####################################################################
+slip24
+Q.1) Write a PHP program to read two file names from user and append content of first file into
+second file.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Append Files</title>
+</head>
+<body>
+    <form method="post" action="">
+        Source File: <input type="text" name="source_file" required><br>
+        Destination File: <input type="text" name="destination_file" required><br>
+        <input type="submit" value="Append">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $source_file = $_POST["source_file"];
+        $destination_file = $_POST["destination_file"];
+
+        if (file_exists($source_file)) {
+            $source_content = file_get_contents($source_file);
+
+            if (file_put_contents($destination_file, $source_content, FILE_APPEND)) {
+                echo "<p>Content appended successfully!</p>";
+            } else {
+                echo "<p>Error appending content.</p>";
+            }
+        } else {
+            echo "<p>Source file does not exist.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip24
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataset
+data = pd.read_csv('iris.csv')
+
+# Get the frequency of each species
+species_frequency = data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)  # Rotate x-axis labels if needed
+plt.show()
+============================================================
+B->
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load Iris dataset from seaborn
+iris = sns.load_dataset('iris')
+
+# Create a histogram for each species
+sns.histplot(data=iris, x='sepal_length', hue='species', element='step', stat='density', common_norm=False, kde=True)
+sns.histplot(data=iris, x='sepal_width', hue='species', element='step', stat='density', common_norm=False, kde=True)
+sns.histplot(data=iris, x='petal_length', hue='species', element='step', stat='density', common_norm=False, kde=True)
+sns.histplot(data=iris, x='petal_width', hue='species', element='step', stat='density', common_norm=False, kde=True)
+
+# Set the title and show the plot
+plt.suptitle("Histogram of Iris Data by Species")
+plt.show()
+################################################################################
+slip25
+Q.1) Write a menu driven program to perform various file operations. Accept filename from
+user.
+a) Display type of file.
+b) Display last modification time of file
+c) Display the size of file
+d) Delete the file
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Operations</title>
+</head>
+<body>
+    <form method="post" action="">
+        Enter Filename: <input type="text" name="filename" required><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $filename = $_POST["filename"];
+
+        if (file_exists($filename)) {
+            echo "<h2>File Operations for $filename:</h2>";
+
+            // a) Display type of file
+            $file_type = mime_content_type($filename);
+            echo "Type of file: $file_type<br>";
+
+            // b) Display last modification time of file
+            $last_modification_time = date("F d Y H:i:s.", filemtime($filename));
+            echo "Last Modification Time: $last_modification_time<br>";
+
+            // c) Display the size of file
+            $file_size = filesize($filename);
+            echo "Size of file: $file_size bytes<br>";
+
+            // d) Delete the file
+            echo "<form method='post' action=''>
+                    <input type='hidden' name='delete_filename' value='$filename'>
+                    <input type='submit' name='delete' value='Delete'>
+                  </form>";
+
+            if (isset($_POST['delete'])) {
+                $delete_filename = $_POST['delete_filename'];
+                if (unlink($delete_filename)) {
+                    echo "<p>File '$delete_filename' deleted successfully.</p>";
+                } else {
+                    echo "<p>Error deleting file '$delete_filename'.</p>";
+                }
+            }
+        } else {
+            echo "<p>File '$filename' does not exist.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip25
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(1, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.subplot(2, 2, 1)
+plt.plot(random_data, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Scatter Plot
+plt.subplot(2, 2, 2)
+plt.scatter(range(50), random_data, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Histogram
+plt.subplot(2, 2, 3)
+plt.hist(random_data, bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+
+# Box Plot
+plt.subplot(2, 2, 4)
+plt.boxplot(random_data, vert=False, patch_artist=True)
+plt.title('Box Plot')
+plt.xlabel('Value')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+===========================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Define the subject names and marks obtained
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 80]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99','#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+
+# Display the pie chart
+plt.show()
+########################################################################################
+slip26
+Q.1)Consider the following entities and their relationship.
+Doctor ( doc_no, dname, address ,city ,area)
+Hospital (hosp_no, hname, hcity)
+Doctor-Hospital related with many-one relationship.
+Create a RDB in 3NF for above and solve the following.
+Using above database write a script in PHP to print the Doctor visiting to the Hospital in tabular
+format. Accept Hospital name from user.
+**sql**
+CREATE TABLE Hospital (
+    hosp_no INT PRIMARY KEY,
+    hname VARCHAR(255),
+    hcity VARCHAR(255)
+);
+
+CREATE TABLE Doctor (
+    doc_no INT PRIMARY KEY,
+    dname VARCHAR(255),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    area VARCHAR(255),
+    hosp_no INT,
+    FOREIGN KEY (hosp_no) REFERENCES Hospital(hosp_no)
+);
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors by Hospital</title>
+</head>
+<body>
+    <form method="post" action="">
+        Enter Hospital Name: <input type="text" name="hospital_name" required><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $hospital_name = $_POST["hospital_name"];
+
+        // Establish database connection
+        $servername = "localhost";
+        $username = "your_username";
+        $password = "your_password";
+        $dbname = "hospital_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Query to retrieve doctors visiting a specific hospital
+        $query = "SELECT Doctor.doc_no, Doctor.dname, Doctor.address, Doctor.city, Doctor.area
+                  FROM Doctor
+                  INNER JOIN Hospital ON Doctor.hosp_no = Hospital.hosp_no
+                  WHERE Hospital.hname = '$hospital_name'";
+
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            echo "<h2>Doctors Visiting $hospital_name:</h2>";
+            echo "<table border='1'>
+                    <tr>
+                        <th>Doctor No</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Area</th>
+                    </tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>{$row['doc_no']}</td>
+                        <td>{$row['dname']}</td>
+                        <td>{$row['address']}</td>
+                        <td>{$row['city']}</td>
+                        <td>{$row['area']}</td>
+                      </tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<h2>No doctors found for $hospital_name</h2>";
+        }
+
+        // Close the connection
+        $conn->close();
+    }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip26
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(1, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 8))
+plt.subplot(2, 2, 1)
+plt.plot(random_data, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Scatter Plot
+plt.subplot(2, 2, 2)
+plt.scatter(range(50), random_data, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Histogram
+plt.subplot(2, 2, 3)
+plt.hist(random_data, bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+
+# Box Plot
+plt.subplot(2, 2, 4)
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='yellow'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+===========================================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Define the subject names and marks obtained
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 80]
+
+# Create a bar chart
+plt.figure(figsize=(8, 6))
+plt.bar(subjects, marks, color=['blue', 'green', 'red', 'purple'])
+plt.title('Subject-wise Marks')
+plt.xlabel('Subjects')
+plt.ylabel('Marks Obtained')
+
+# Display the bar chart
+plt.show()
+#########################################################################################
+slip27
+Q.1) Write a PHP program to read two file names from user and copy the content of first file into
+second file.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Copy</title>
+</head>
+<body>
+    <form method="post" action="">
+        Source File: <input type="text" name="source_file" required><br>
+        Destination File: <input type="text" name="destination_file" required><br>
+        <input type="submit" value="Copy">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $source_file = $_POST["source_file"];
+        $destination_file = $_POST["destination_file"];
+
+        if (file_exists($source_file)) {
+            $source_content = file_get_contents($source_file);
+
+            if (file_put_contents($destination_file, $source_content)) {
+                echo "<p>Content copied successfully!</p>";
+            } else {
+                echo "<p>Error copying content.</p>";
+            }
+        } else {
+            echo "<p>Source file does not exist.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip27
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+# Load the dataset
+df = pd.read_csv('data.csv')
+
+# One-Hot encoding on 'Country' column
+encoder = OneHotEncoder(sparse=False)
+encoded_country = encoder.fit_transform(df[['Country']])
+df_encoded = pd.concat([df, pd.DataFrame(encoded_country, columns=encoder.get_feature_names_out(['Country']))], axis=1)
+df_encoded = df_encoded.drop(columns=['Country'])
+
+# Label encoding on 'Purchased' column
+label_encoder = LabelEncoder()
+df_encoded['Purchased'] = label_encoder.fit_transform(df_encoded['Purchased'])
+
+# Save the encoded dataset to a new CSV file
+df_encoded.to_csv('encoded_data.csv', index=False)
+************csv*************************************
+Country,Purchased
+USA,Yes
+Canada,No
+Germany,Yes
+USA,No
+France,Yes
+Canada,Yes
+France,No
+Germany,Yes
+France,No
+USA,Yes
+####################################################################################
+import pandas as pd
+import numpy as np
+
+# Task 1: Create a dataframe with columns name, age, and percentage
+data = {'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'Charlie', 'Diana', 'Frank', 'Grace', 'Henry'],
+        'age': [25, 30, 22, 28, 26, 27, 29, 31, 23, 24],
+        'percentage': [75.5, 88.3, 65.2, 90.1, 77.8, 82.6, 69.7, 95.0, 70.3, 78.9]}
+
+df = pd.DataFrame(data)
+
+# Task 1 (Continued): Add 10 rows to the dataframe
+additional_data = {'name': ['Sam', 'Lucy', 'Tom', 'Emily', 'Oliver', 'Sophia', 'Liam', 'Emma', 'Mason', 'Ava'],
+                   'age': [26, 29, 30, 25, 31, 23, 28, 27, 32, 24],
+                   'percentage': [72.4, 91.7, 68.8, 85.3, 79.6, 83.2, 76.9, 92.5, 73.8, 87.4]}
+
+df = df.append(pd.DataFrame(additional_data), ignore_index=True)
+
+# Task 1 (Continued): View the dataframe
+print("Task 1: DataFrame with 20 rows")
+print(df)
+print()
+
+# Task 2: Print shape, number of rows-columns, data types, feature names, and data description
+print("Task 2: Data Details")
+print(f"Shape: {df.shape}")
+print(f"Number of Rows: {len(df)}")
+print(f"Number of Columns: {len(df.columns)}")
+print(f"Data Types:\n{df.dtypes}\n")
+print(f"Feature Names:\n{df.columns}\n")
+print(f"Description:\n{df.describe()}\n")
+
+# Task 3: View basic statistical details of the data
+print("Task 3: Basic Statistical Details")
+print(df.describe())
+print()
+
+# Task 4: Add 5 rows with duplicate and missing values, add 'remarks' column with empty values
+additional_data_task4 = {'name': ['Jane', np.nan, 'Bob', 'Alice', 'Eve'],
+                         'age': [30, 27, 22, 28, np.nan],
+                         'percentage': [88.3, 82.6, 65.2, np.nan, 77.8],
+                         'remarks': ['', '', '', '', '']}
+
+df = df.append(pd.DataFrame(additional_data_task4), ignore_index=True)
+
+print("Task 4: DataFrame with 25 rows (including duplicates and missing values)")
+print(df)
+###################################################################################
+slip28
+Q.1) Write a program to read a flat file “student.dat”, calculate the percentage and display the
+data from file in tabular format.(Student.dat file contains rollno, name, OS, WT, DS, Python,
+Java, CN )
+<?php
+
+// Define a function to calculate percentage
+function calculate_percentage($os, $wt, $ds, $python, $java, $cn) {
+    $total_marks = $os + $wt + $ds + $python + $java + $cn;
+    $percentage = ($total_marks / 600) * 100;
+    return round($percentage, 2);
+}
+
+// Read the data from the file
+$file_path = 'student.dat';
+$file_content = file($file_path, FILE_IGNORE_NEW_LINES);
+
+// Display the data in tabular format
+echo "<table border='1'>";
+echo "<tr><th>Roll No</th><th>Name</th><th>OS</th><th>WT</th><th>DS</th><th>Python</th><th>Java</th><th>CN</th><th>Percentage</th></tr>";
+
+foreach ($file_content as $line) {
+    $data = explode(',', $line);
+    list($roll_no, $name, $os, $wt, $ds, $python, $java, $cn) = array_map('intval', $data);
+
+    $percentage = calculate_percentage($os, $wt, $ds, $python, $java, $cn);
+
+    echo "<tr><td>$roll_no</td><td>$name</td><td>$os</td><td>$wt</td><td>$ds</td><td>$python</td><td>$java</td><td>$cn</td><td>$percentage%</td></tr>";
+}
+
+echo "</table>";
+
+?>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+import pandas as pd
+
+# Task 1: Create a dataframe with columns name, age, and percentage
+data = {'name': ['John', 'Alice', 'Bob', 'Charlie', 'Emma', 'David', 'Eva', 'Frank', 'Grace', 'Henry'],
+        'age': [25, 22, 30, 28, 23, 35, 26, 31, 29, 24],
+        'percentage': [85.5, 92.0, 78.3, 88.6, 94.2, 76.8, 89.5, 82.7, 91.1, 87.4]}
+
+df = pd.DataFrame(data)
+
+# Task 2: Print shape, number of rows/columns, data types, feature names, and data description
+print("\nTask 2:")
+print("Shape of the dataframe:", df.shape)
+print("Number of rows and columns:", df.shape[0], "rows x", df.shape[1], "columns")
+print("\nData types of columns:\n", df.dtypes)
+print("\nFeature names:\n", df.columns)
+print("\nData description:\n", df.describe())
+
+# Task 3: View basic statistical details of the data
+print("\nTask 3:")
+print("Basic statistical details:\n", df.describe())
+
+# Task 4: Add 5 rows with duplicate values and missing values, add a column 'remarks'
+additional_data = {'name': ['John', 'Alice', 'Bob', 'Charlie', 'Emma'],
+                   'age': [25, 22, 30, None, 23],
+                   'percentage': [85.5, 92.0, 78.3, 88.6, None],
+                   'remarks': [None, None, None, None, None]}
+
+df_additional = pd.DataFrame(additional_data)
+
+df = pd.concat([df, df_additional], ignore_index=True)
+
+# Display the data
+print("\nTask 4:")
+print("Updated dataframe with duplicates and missing values:\n", df)
+
+#####################################################################################
+slip29
+Q.1) Consider the following entities and their relationships
+Event (eno , title , date )
+Committee ( cno , name, head , from_time ,to_time , status)
+Event and Committee have many to many relationship. Write a php script to accept title of event
+and modify status committee as working.
+**sql**
+CREATE TABLE Event (
+    eno INT PRIMARY KEY,
+    title VARCHAR(255),
+    date DATE
+);
+
+CREATE TABLE Committee (
+    cno INT PRIMARY KEY,
+    name VARCHAR(255),
+    head VARCHAR(255),
+    from_time TIME,
+    to_time TIME,
+    status VARCHAR(50)
+);
+
+CREATE TABLE EventCommittee (
+    eno INT,
+    cno INT,
+    PRIMARY KEY (eno, cno),
+    FOREIGN KEY (eno) REFERENCES Event(eno),
+    FOREIGN KEY (cno) REFERENCES Committee(cno)
+);
+
+<?php
+
+$servername = "your_server_name";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database_name";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prompt user for the title of the event
+$eventTitle = readline("Enter the title of the event: ");
+
+// Update the status of the committee as "working" for the specified event
+$updateQuery = "UPDATE Committee
+                SET status = 'working'
+                WHERE cno IN (SELECT cno FROM EventCommittee WHERE eno IN (SELECT eno FROM Event WHERE title = '$eventTitle'))";
+
+if ($conn->query($updateQuery) === TRUE) {
+    echo "Status of committee updated successfully.";
+} else {
+    echo "Error updating status: " . $conn->error;
+}
+
+// Close connection
+$conn->close();
+
+?>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip29
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv('data.csv')
+
+# Apply One-Hot encoding on 'Country' column
+df_encoded = pd.get_dummies(df, columns=['Country'], drop_first=True)
+
+# Apply Label encoding on 'Purchased' column
+df_encoded['Purchased'] = df_encoded['Purchased'].astype('category')
+df_encoded['Purchased'] = df_encoded['Purchased'].cat.codes
+
+# Save the encoded dataset to a new CSV file
+df_encoded.to_csv('encoded_data.csv', index=False)
+###################################################################################
+slip30
+Q.1) Consider the following entities and their relationships
+Student (Stud_id,name,class)
+Competition (c_no,c_name,type)
+Relationship between student and competition is many-many with attribute rank and year. Create
+a RDB in 3NF for the above and solve the following. Using above database write a script in PHP
+to accept a competition name from user and display information of student who has secured 1st
+rank in that competition.
+**sql**
+CREATE TABLE Student (
+    Stud_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    class VARCHAR(50)
+);
+
+CREATE TABLE Competition (
+    c_no INT PRIMARY KEY,
+    c_name VARCHAR(255),
+    type VARCHAR(50)
+);
+
+CREATE TABLE StudentCompetition (
+    Stud_id INT,
+    c_no INT,
+    rank INT,
+    year INT,
+    PRIMARY KEY (Stud_id, c_no),
+    FOREIGN KEY (Stud_id) REFERENCES Student(Stud_id),
+    FOREIGN KEY (c_no) REFERENCES Competition(c_no)
+);
+
+<html>
+<head>
+    <title>Student Information</title>
+</head>
+<body>
+    <form method="post" action="">
+        <label for="competition_name">Enter Competition Name:</label>
+        <input type="text" id="competition_name" name="competition_name" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $competition_name = $_POST["competition_name"];
+            
+            // Connect to the database
+            $conn = new mysqli('localhost', 'username', 'password', 'competition_db');
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Query to retrieve student information
+            $query = "SELECT Student.Stud_id, Student.name, Student.class
+                      FROM Student
+                      INNER JOIN Student_Competition ON Student.Stud_id = Student_Competition.Stud_id
+                      INNER JOIN Competition ON Student_Competition.c_no = Competition.c_no
+                      WHERE Competition.c_name = '$competition_name'
+                      AND Student_Competition.rank = 1";
+
+            $result = $conn->query($query);
+
+            if ($result->num_rows > 0) {
+                echo "<h2>Student Information for 1st Rank in $competition_name:</h2>";
+                echo "<table border='1'>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                        </tr>";
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>{$row['Stud_id']}</td>
+                            <td>{$row['name']}</td>
+                            <td>{$row['class']}</td>
+                          </tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "<h2>No records found for 1st rank in $competition_name</h2>";
+            }
+
+            $conn->close();
+        }
+    ?>
+</body>
+</html>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+slip30
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Part A: Generate random array and display with different plots
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(1, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(12, 3))
+plt.subplot(1, 4, 1)
+plt.plot(random_data, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Scatter Plot
+plt.subplot(1, 4, 2)
+plt.scatter(range(50), random_data, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Histogram
+plt.subplot(1, 4, 3)
+plt.hist(random_data, bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+
+# Box Plot
+plt.subplot(1, 4, 4)
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='yellow'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+
+# Part B: Create lists representing subject names and marks
+
+# Define subject names and corresponding marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 80]
+
+# Create a bar chart
+plt.figure(figsize=(8, 6))
+plt.bar(subjects, marks, color=['blue', 'green', 'red', 'purple'])
+plt.title('Subject-wise Marks')
+plt.xlabel('Subjects')
+plt.ylabel('Marks Obtained')
+
+# Display the bar chart
+plt.show()
+
+
+

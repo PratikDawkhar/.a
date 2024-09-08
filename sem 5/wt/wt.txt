@@ -1,0 +1,1179 @@
+PHP+PYTHON SLIPS SOLUTIONS
+Slip 1
+Slip 1
+Q.1) Write the HTML code for generating the form as shown below. Apply the internal
+CSS to following form to change the font size of the heading to 6pt and change the color
+to red and also change the background color to yellow
+
+
+<!DOCTYPE html>
+<head>
+ <style>
+ .form {
+
+ height:300px;
+ width:300px;
+ text-align: center;
+ background-color: rgb(87, 207, 240);
+ }
+ button {
+ background: rgb(11, 190, 59);
+ }
+ #butt {
+ background:rgb(64, 136, 231);
+
+ }
+
+
+ </style>
+ <title>Project Management</title>
+</head>
+<body><center>
+ <h2><u>Project Management</u></h2><br>
+ <div class="form">
+
+
+ <label for="name"><b>Progect Name</b></label>
+ <input type="text" placeholder="Project Name"><br><br>
+
+ <label for="name"><b> Assigned to</b></label>
+ <select>
+ <option value="volvo">Er Merry Pelision</option>
+ </select><br><br>
+
+ <label for="start"><b>Start date:</b></label>
+ <input type="date" name="trip-start" value="2018-07-22" min="2018-01-01"
+max="2023-10-09" /> <br><br>
+
+ <label for="start"><b>End date:</b></label>
+ <input type="date" name="trip-start" value="2018-07-22" min="2018-01-01"
+max="2018-12-31" /> <br><br>
+
+ <label for="name"><b> Priority</b></label>
+ <input type="radio">
+ <label for="html"><b>High</b></label>
+ <input type="radio">
+ <label for="html"><b>Average</b></label>
+ <input type="radio">
+ <label for="html"><b>Low</b></label>
+ <br><br>
+
+ <label for="description" id="desc"><b>Description</b></label>
+ <input type="text" ><br><br>
+
+ <button type="button">Submit</button>
+ <button type="butt" id="butt"> Clear</button>
+
+ </form>
+ </div>
+</center>
+</body>
+</html>
+2 A)Write a Python program to create a Pie plot to get the frequency of the three
+species of the Iris data (Use iris.csv)
+import pandas as pd
+import matplotlib.pyplot as plt
+iris=pd.read_csv("iris.csv")
+ax=plt.subplots(1,1,figsize=(10,8))
+iris['Species'].value_counts().plot.pie(explode=[0.1,0.1,0.1],autopct='%1.1f%%',shadow=True,fi
+gsize=(10,8))
+plt.title("Iris Species %")
+plt.show()
+
+2 B)Write a Python program to view basic statistical details of the data.(Use
+wineequality-red.csv)
+import pandas as pd
+data = pd.read_csv("winequality-red.csv")
+print(data.describe())
+
+Slip 2
+
+Q1.Create HTML5 page with following specifications [15] i) Title should be about your
+City. ii) Color the background by Pink color. iii) Place your city name at the top of page
+in large text and in blue color. iv) Add names of the landmarks in your city, each in
+different color, style and font v) Add any image at the bottom. (Use inline CSS to format
+the web page)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>About My City - Example City</title>
+ <style>
+ body {
+ background-color: pink;
+ font-family: Arial, sans-serif;
+ text-align: center;
+ }
+ #cityName {
+ color: blue;
+ font-size: 36px;
+ margin-top: 20px;
+ }
+ .landmark {
+ font-size: 24px;
+ margin: 10px;
+ }
+ #image {
+ margin-top: 20px;
+ }
+ </style>
+</head>
+<body>
+ <h1 id="cityName">Example City</h1>
+
+ <p class="landmark" style="color: red; font-style: italic;">Landmark 1: Red Fort</p>
+ <p class="landmark" style="color: green; font-weight: bold;">Landmark 2: Central
+Park</p>
+ <p class="landmark" style="color: purple; font-family: 'Times New Roman',
+serif;">Landmark 3: Purple Palace</p>
+ <p class="landmark" style="color: orange; text-decoration: underline;">Landmark 4:
+Orange Bridge</p>
+
+ <img id="image" src="your_city_image.jpg" alt="Example City Image" width="300">
+</body>
+</html>
+Q.2 A) Write a Python program for Handling Missing Value. Replace missing value of
+salary, age column with mean of that column.(Use Data.csv file).
+import pandas as pd
+data = pd.read_csv('Data.csv')
+data.head()
+data['salary'] = data['salary'].fillna(data['salary'].mean())
+data['age'] = data['age'].fillna(data['age'].mean())
+data.head()
+Q.2 B) Write a Python program to generate a line plot of name Vs salary
+
+Import matplotlib.pyplot as plt
+importnumpy as np
+plt.title("Line Plot of Names vs Salary")
+x=np.array(["Ramesh","Suresh","Aryan","Sonu"])
+plt.xlabel("Employee Names")
+y=np.array([10000,8000,20000,5000])
+plt.ylabel("Salary")
+plt.plot(x,y)
+plt.show()
+
+Q.2 C) Download the heights and weights dataset and load the dataset froma given csv
+file into a dataframe. Print the first, last 10 rows and random 20 rows also display
+shape of the dataset
+
+import pandas as pd
+import numpy as np
+dataset = pd.read_csv("weight-height.csv")
+print(dataset)
+dataset.head()
+dataset.tail(5)
+data = np.random.randint(5, 9995, size=20)
+df = pd.DataFrame(data, columns=['random_numbers'])
+print(df)
+shape = dataset.shape
+print(shape)
+(10000,3)
+Slip 3
+
+Q.1) Write a program using html with following CSS specifications- [15] i. The
+background colour of the company name should be in green. ii. The text colour
+of the company name should be red. iii. The heading should be large –with font
+''comic sans ms'' iv. The description of the company should be displayed in blue
+color in a paragraph
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Company Information</title>
+ <style>
+ #companyName {
+ background-color: green;
+ color: red;
+ }
+ h1 {
+ font-size: 36px;
+ font-family: 'Comic Sans MS', cursive;
+ }
+ p {
+ color: blue;
+ }
+ </style>
+</head>
+<body>
+ <div id="companyName">
+ <h1>Company Name</h1>
+ </div>
+ <p>This is a description of the company. It is displayed in blue color in a paragraph.</p>
+</body>
+</html>
+
+Q.2) write a python program to create box plots to see how each feauture i.e. sepal
+length,sepal width,petal length, petal width,are distributed acrooss the three species
+import pandas as pd
+import matplotlib.pyplot as plt
+iris = pd.read_csv("iris.csv")
+new_data = iris.drop('Id',axis=1)
+new_data.hist(edgecolor='black', linewidth=1.2)
+fig=plt.gcf()
+fig.set_size_inches(12,12)
+plt.show()
+Q.3) write a program to view basic statistical details of the data(weight and
+height data)
+import pandas as pd
+data = pd.read_csv("iris.csv")
+print(data.describe())
+Slip 4
+Q.1)Write a HTML code, which generate the following output
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Table</title>
+ <style>
+ table{
+ border-collapse: collapse;
+ text-align: center;
+ }
+ h5{
+ margin-left:95px;
+ margin-bottom: 10px; }
+ </style>
+</head>
+<body>
+ <table border="1px solid black">
+ <h5>List of Books </h5>
+ <tr>
+ <td rowspan="2">Item no </td>
+ <td rowspan="2">Item name</td>
+ <td colspan="2">Price</td>
+ </tr>
+ <tr>
+ <td>Rs</td>
+ <td>Paise</td>
+ </tr>
+ <tr>
+ <td>1</td>
+ <td>Programming In Python</td>
+ <td>500</td>
+ <td>50</td>
+ </tr>
+ <tr>
+ <td>2</td>
+ <td>Programming In Java</td>
+ <td>345</td>
+ <td>00</td>
+ </tr>
+ </table>
+</body>
+</html>
+Q.2 A) Generate a random array of 50 integers and display them using a line chart,
+scatter plot, histogram and box plot. Apply appropriate color, labels and styling options.
+import numpy as np
+import matplotlib.pyplot as plt
+np.random.seed(42)
+data = np.random.randint(1, 100, 50)
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+axes[0, 0].plot(data, color='blue', marker='o', linestyle='-')
+axes[0, 0].set_title('Line Chart')
+axes[0, 0].set_xlabel('Data Point')
+axes[0, 0].set_ylabel('Value')
+axes[0, 1].scatter(range(len(data)), data, color='green', marker='x')
+axes[0, 1].set_title('Scatter Plot')
+axes[0, 1].set_xlabel('Data Point')
+axes[0, 1].set_ylabel('Value')
+axes[1, 0].hist(data, bins=10, color='purple', alpha=0.7)
+axes[1, 0].set_title('Histogram')
+axes[1, 0].set_xlabel('Value')
+axes[1, 0].set_ylabel('Frequency')
+axes[1, 1].boxplot(data, vert=False, patch_artist=True)
+axes[1, 1].set_title('Box Plot')
+axes[1, 1].set_yticklabels([])
+axes[1, 1].set_xlabel('Value')
+fig.suptitle('Random Data Visualization', fontsize=16)
+plt.tight_layout()
+plt.show()
+Q.2 B) Write a Python program to print the shape, number of rows-columns, data types,
+feature names and the description of the data(Use User_Data.csv)
+import numpy as np
+import matplotlib.pyplot as plt
+np.random.seed(42)
+data = np.random.randint(1, 100, 50)
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+axes[0, 0].plot(data, color='blue', marker='o', linestyle='-')
+axes[0, 0].set_title('Line Chart')
+axes[0, 0].set_xlabel('Data Point')
+axes[0, 0].set_ylabel('Value')
+axes[0, 1].scatter(range(len(data)), data, color='green', marker='x')
+axes[0, 1].set_title('Scatter Plot')
+axes[0, 1].set_xlabel('Data Point')
+axes[0, 1].set_ylabel('Value')
+axes[1, 0].hist(data, bins=10, color='purple', alpha=0.7)
+axes[1, 0].set_title('Histogram')
+axes[1, 0].set_xlabel('Value')
+axes[1, 0].set_ylabel('Frequency')
+axes[1, 1].boxplot(data, vert=False, patch_artist=True)
+axes[1, 1].set_title('Box Plot')
+axes[1, 1].set_yticklabels([])
+axes[1, 1].set_xlabel('Value')
+fig.suptitle('Random Data Visualization', fontsize=16)
+plt.tight_layout()
+plt.show()
+Slip 5
+Q.1) Create following Bootstrap Web Layout Design and change Title, add your personal
+information, educational information, job profile.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>My Portfolio</title>
+ <!-- Bootstrap CSS link -->
+ <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ <style>
+ /* Custom styles */
+ body {
+ padding: 20px;
+ }
+ .section-heading {
+ font-size: 24px;
+ color: #333;
+ margin-top: 20px;
+ }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <!-- Title -->
+ <div class="section-heading">
+ <h1>My Portfolio</h1>
+ </div>
+ <!-- Personal Information -->
+ <div class="section-heading">
+ <h2>Personal Information</h2>
+ </div>
+ <div class="row">
+ <div class="col-md-6">
+ <p><strong>Name:</strong> John Doe</p>
+ <p><strong>Email:</strong> john.doe@example.com</p>
+ <p><strong>Phone:</strong> (123) 456-7890</p>
+ </div>
+ <div class="col-md-6">
+ <p><strong>Location:</strong> City, Country</p>
+ <p><strong>Date of Birth:</strong> January 1, 1990</p>
+ </div>
+ </div>
+ <!-- Educational Information -->
+ <div class="section-heading">
+ <h2>Educational Information</h2>
+ </div>
+ <ul>
+ <li>Bachelor of Science in Computer Science - XYZ University</li>
+ <li>Master of Science in Web Development - ABC University</li>
+ </ul>
+ <!-- Job Profile -->
+ <div class="section-heading">
+ <h2>Job Profile</h2>
+ </div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt condimentum
+massa, eu dignissim
+ nulla
+ vehicula at.</p>
+ </div>
+ <!-- Bootstrap JS scripts -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ <script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+Q.2 A) Generate a random array of 50 integers and display them using a line chart,
+scatter plot, histogram and box plot. Apply appropriate color, labels and styling options
+import numpy as np
+import matplotlib.pyplot as plt
+# Generate a random array of 50 integers
+random_array = np.random.randint(0, 100, 50)
+# Line chart
+plt.figure()
+plt.plot(random_array, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.show()
+# Scatter plot
+plt.figure()
+plt.scatter(range(len(random_array)), random_array, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.show()
+# Histogram
+plt.figure()
+plt.hist(random_array, bins=10, color='green', edgecolor='black')
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+# Box plot
+plt.figure()
+plt.boxplot(random_array, vert=False)
+plt.title('Box Plot')
+plt.xlabel('Value')
+plt.show()
+
+
+Q2.Write a Python program to print the shape, number of rows-columns, data types,
+feature names and the description of the data(Use User_Data.csv)
+
+import pandas as pd
+file_path = 'C:\\Users\\shinde\\OneDrive\\Desktop\\python+php\\slip no 5\\User_Data.csv'
+data = pd.read_csv(file_path)
+# Print the shape (number of rows and columns)
+print('Shape of the data:', data.shape)
+print('Number of rows:', data.shape[0])
+print('Number of columns:', data.shape[1])
+# Print the data types of each column
+print('\nData types of each column:')
+print(data.dtypes)
+# Print the feature names
+print('\nFeature names:')
+print(list(data.columns))
+# Print the description of the data
+print('\nDescription of the data:')
+print(data.describe())
+
+slip 7
+Q1)Design HTML 5 Page Using CSS Which Displays the following Navigation Bar
+<!DOCTYPE html>
+<head>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ }
+ nav {
+ background-color: #333;
+ color: white;
+ }
+ nav ul {
+ list-style-type: none;
+ padding: 0;
+ }
+ nav li {
+ display: inline;
+ margin-right: 10px;
+ }
+ nav li a {
+ color: rgb(139, 139, 238);
+ text-decoration: none;
+ }
+ nav li a:hover {
+ border-bottom: 2px solid white;
+ }
+ .content {
+ padding: 20px;
+ }
+ </style>
+ <title>Navigation Bar </title>
+</head>
+<body>
+ <nav>
+ <ul>
+ <li><a href="#home">Home</a></li>
+ <li><a href="#about">Java</a></li>
+ <li><a href="#services">HTML</a></li>
+ <li><a href="#contact">CSS</a></li>
+ </ul>
+ </nav>
+ </div>
+</body>
+</html>
+Q.2
+Q.2) Write a Python program to perform the following tasks : a. Apply OneHot coding on
+Country column. b. Apply Label encoding on purchased column (Data.csv have two
+categorical column the country column, and the purchased column)
+
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+file_path = 'C:\Users\shinde\OneDrive\Desktop\python+php\slip no 7\data.csv'
+df = pd.read_csv(file_path)
+encoder = OneHotEncoder(sparse=False, drop='first'
+country_encoded = encoder.fit_transform(df[['Country']])
+feature_names = encoder.get_feature_names_out(['Country'])
+country_encoded_df = pd.DataFrame(country_encoded, columns=feature_names)
+label_encoder = LabelEncoder()
+df['Purchased'] = label_encoder.fit_transform(df['Purchased'])
+print("DataFrame with Encoded Columns:")
+print(df)
+output_file_path = 'Encoded_Data.csv'
+df.to_csv(output_file_path, index=False)
+
+Slip 8
+Q.1) Design an HTML form to accept two strings from the user. Write a PHP script for
+the following. a. Find whether the small string appears at the start of the large string. b.
+Find the position of the small string in the big string. c. Compare both the string for first
+n characters, also the comparison should not be case sensitive
+<!DOCTYPE html>
+<head>
+ <title>String Comparison</title>
+</head>
+<body>
+ <h1>String Comparison</h1>
+ <form action="Compare.php" method="post">
+ <label for="large_string">Enter a large string:</label>
+ <input type="text" id="large_string" name="large_string" required><br><br>
+
+ <label for="small_string">Enter a small string:</label>
+ <input type="text" id="small_string" name="small_string" required><br><br>
+
+ <label for="compare_n_chars">Number of characters to compare:</label>
+ <input type="number" id="compare_n_chars" name="compare_n_chars" min="1"
+required><br><br>
+
+ <input type="submit" value="Submit">
+ </form>
+</body>
+</html>
+Q2) Write a program in python to perform following task : [15]
+Standardizing Data (transform them into a standard Gaussian distribution with a mean
+of 0 and a standard deviation of 1) (Use winequality-red.csv)
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+# Load the dataset
+data = pd.read_csv('C:\\Users\\shinde\\OneDrive\\Desktop\\python+php\\slip no
+8\\winequality-red.csv')
+# Separate the target variable (quality) from the features
+X = data.drop('quality', axis=1)
+# Standardize the features using StandardScaler
+scaler = StandardScaler()
+X_standardized = scaler.fit_transform(X)
+# Create a new DataFrame with the standardized features
+X_standardized_df = pd.DataFrame(X_standardized, columns=X.columns)
+# Concatenate the standardized features with the target variable
+final_data = pd.concat([X_standardized_df, data['quality']], axis=1)
+# Save the standardized data to a new CSV file
+final_data.to_csv('winequality-red-standardized.csv', index=False)
+print("Data standardization completed and saved as 'winequality-red-standardized.csv'")
+
+
+Slip 9
+
+Q.1) Write a PHP script for the following: Design a form having a text box and a drop
+down list containing any 3 separators(e.g. #, |, %, @, ! or comma) accept a strings from
+the user and also a separator. a. Split the string into separate words using the given
+separator. b. Replace all the occurrences of separator in the given string with some
+other separator. c. Find the last word in the given string
+<!DOCTYPE html>
+<html>
+<head>
+ <title>String Operations</title>
+</head>
+<body>
+ <h2>String Operations</h2>
+ <form method="post">
+ <label for="inputString">Enter a string:</label>
+ <input type="text" name="inputString" id="inputString" required><br><br>
+ <label for="separator">Select a separator:</label>
+ <select name="separator" id="separator" required>
+ <option value="#">#</option>
+ <option value="|">|</option>
+ <option value="%">%</option>
+ </select><br><br>
+ <input type="submit" name="submit" value="Submit">
+ </form>
+ <?php
+ if (isset($_POST['submit'])) {
+ $inputString = $_POST['inputString'];
+ $selectedSeparator = $_POST['separator'];
+ $words = explode($selectedSeparator, $inputString);
+ $newSeparator = '***'; // Replace with your desired separator
+ $replacedString = str_replace($selectedSeparator, $newSeparator, $inputString);
+ $lastWord = end($words);
+ echo "<h3>Results:</h3>";
+ echo "Original String: $inputString<br>";
+ echo "Words separated by '$selectedSeparator': " . implode(", ", $words) . "<br>";
+ echo "String with separator replaced by '$newSeparator': $replacedString<br>";
+ echo "Last Word: $lastWord";
+ }
+ ?>
+</body>
+</html>
+Q.2 A)Generate a random array of 50 integers and display them using a line chart, scatter plot.
+Apply appropriate color, labels and styling options.
+
+import numpy as np
+import matplotlib.pyplot as plt
+random_integers = np.random.randint(0, 100, 50)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+ax1.plot(random_integers, marker='o', linestyle='-', color='b', label='Random Integers')
+ax1.set_title('Line Chart')
+ax1.set_xlabel('Index')
+ax1.set_ylabel('Value')
+ax1.legend()
+x = np.arange(1, 51)
+ax2.scatter(x, random_integers, c='r', marker='s', label='Random Integers')
+ax2.set_title('Scatter Plot')
+ax2.set_xlabel('Index')
+ax2.set_ylabel('Value')
+ax2.legend()
+plt.suptitle('Random Integer Data Visualization', fontsize=16)
+plt.tight_layout()
+plt.show()
+
+Q.2 B) Create two lists, one representing subject names and the other representing marks
+obtained in those subjects. Display the data in a pie chart.
+import matplotlib.pyplot as plt
+subjects = ["Math", "Science", "History", "English", "Art"]
+marks = [90, 85, 70, 78, 92]
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['blue', 'green',
+'orange', 'red', 'purple'])
+plt.title("Subject-wise Marks Distribution")
+plt.axis('equal') # Equal aspect ratio ensures that pie is drawn as a circle.
+# Display the pie chart
+plt.show()
+Q2 c)
+Write a program in python to perform following task (Use winequality-red.csv ) [5] Import
+Dataset and do the followings: a) Describing the dataset b) Shape of the dataset c) Display
+first 3 rows from dataset
+import pandas as pd
+# a) Import the dataset and describe it
+data = pd.read_csv('winequality-red.csv')
+description = data.describe()
+# b) Display the shape of the dataset
+shape = data.shape
+# c) Display the first 3 rows from the dataset
+first_3_rows = data.head(3)
+# Display the results
+print("a) Description of the dataset:")
+print(description)
+print("\nb) Shape of the dataset:", shape)
+print("\nc) First 3 rows from the dataset:")
+print(first_3_rows)
+Slip 10
+Q.1) Write a script to accept two integers(Use html form having 2 textboxes).
+Write a PHP script to,
+a. Find mod of the two numbers.
+b. Find the power of first number raised to the second.
+c. Find the sum of first n numbers (considering first number as n)
+d. Find the factorial of second number.
+(Write separate function for each of the above operations.)
+1)Html file
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Calculator</title>
+</head>
+<body>
+ <h1>Calculator</h1>
+ <form action="calculate.php" method="post">
+ <label for="number1">Enter first number:</label>
+ <input type="number" id="number1" name="number1" required><br><br>
+ <label for="number2">Enter second number:</label>
+ <input type="number" id="number2" name="number2" required><br><br>
+ <input type="submit" value="Calculate">
+ </form>
+</body>
+</html>
+2)Php File
+<?php
+function calculateMod($num1, $num2) {
+ return $num1 % $num2;
+}
+function calculatePower($num1, $num2) {
+ return pow($num1, $num2);
+}
+function calculateSum($num1) {
+ return ($num1 * ($num1 + 1)) / 2;
+}
+function calculateFactorial($num2) {
+ if ($num2 == 0) {
+ return 1;
+ } else {
+ return $num2 * calculateFactorial($num2 - 1);
+ }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ $number1 = $_POST["number1"];
+ $number2 = $_POST["number2"];
+ // Calculate mod
+ $modResult = calculateMod($number1, $number2);
+ echo "Mod of $number1 and $number2 is: $modResult<br>";
+ // Calculate power
+ $powerResult = calculatePower($number1, $number2);
+ echo "Power of $number1 raised to $number2 is: $powerResult<br>";
+ // Calculate sum
+ $sumResult = calculateSum($number1);
+ echo "Sum of first $number1 numbers is: $sumResult<br>";
+ // Calculate factorial
+ $factorialResult = calculateFactorial($number2);
+ echo "Factorial of $number2 is: $factorialResult";
+}
+?>
+Q.2 A) Write a python program to Display column-wise mean, and median for SOCRHeightWeight
+dataset.
+import pandas as pd
+import numpy as np
+df = pd.read_csv('C:\\Users\\shind\\OneDrive\\Desktop\\python+php\\slip no
+10\\height_weight_dataset.csv', names=['Height', 'Weight'])
+column_mean = df.mean(axis=0)
+print("Column-wise mean:")
+print(column_mean)
+column_median = df.median(axis=0)
+print("\nColumn-wise median:")
+print(column_median)
+Q.2 B) Q.2 B) Write a python program to compute sum of Manhattan distance between all pairs of
+points.
+def manhattan_distance(point1, point2):
+ return abs(point1[0] - point2[0]) + abs(point1[1] - point2[1])
+def sum_of_manhattan_distances(points):
+ total_distance = 0
+ for i in range(len(points)):
+ for j in range(i + 1, len(points)):
+ total_distance += manhattan_distance(points[i], points[j])
+ return total_distance
+points = [(1, 2), (4, 6), (7, 9), (3, 1)]
+total_manhattan_distance = sum_of_manhattan_distances(points)
+print("Sum of Manhattan distances between all pairs of points:", total_manhattan_distance)
+Slip 11
+Q.1Create a button with different style (Secondary, Primary, Success, Error, Info, Warning, Danger)
+using BootStrap
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- Add Bootstrap CSS link -->
+ <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+ <!-- Secondary Button -->
+ <button type="button" class="btn btn-secondary">Secondary Button</button>
+ <!-- Primary Button -->
+ <button type="button" class="btn btn-primary">Primary Button</button>
+ <!-- Success Button -->
+ <button type="button" class="btn btn-success">Success Button</button>
+ <!-- Error/Button -->
+ <button type="button" class="btn btn-danger">Error Button</button>
+ <!-- Info Button -->
+ <button type="button" class="btn btn-info">Info Button</button>
+ <!-- Warning Button -->
+ <button type="button" class="btn btn-warning">Warning Button</button>
+ <!-- Danger Button -->
+ <button type="button" class="btn btn-danger">Danger Button</button>
+ <!-- Add Bootstrap JS and jQuery if needed -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+Q2) Write a Python program to create a Pie plot to get the frequency of the three species of the
+Iris data (Use iris.csv)
+import pandas as pd
+import matplotlib.pyplot as plt
+iris=pd.read_csv("iris.csv")
+ax=plt.subplots(1,1,figsize=(10,8))
+iris['Species'].value_counts().plot.pie(explode=[0.1,0.1,0.1],autopct='%1.1f%%',shadow=True,fi
+gsize=(10,8))
+plt.title("Iris Species %")
+plt.show()
+
+Q2.B) Write a Python program to view basic statistical details of the data.(Use wineequalityred.csv)
+import pandas as pd
+data = pd.read_csv("C:\\Users\\shinde\\OneDrive\\Desktop\\python+php\\slip no 11\\winequalityred.csv")
+summary = data.describe()
+print(summary)
+Slip 12
+Q.1) Write a PHP script for the following: Design a form to accept two numbers from the user.
+Give options to choose the arithmetic operation (use radio buttons). Display the result on the next
+form. (Use the concept of function and default parameters. Use ‘include’ construct or require
+HTML FILE:
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Arithmetic Operation</title>
+</head>
+<body>
+ <h1>Arithmetic Operation</h1>
+ <form action="slip12.php" method="post">
+ <label for="num1">Enter first number:</label>
+ <input type="number" id="num1" name="num1" required><br><br>
+ <label for="num2">Enter second number:</label>
+ <input type="number" id="num2" name="num2" required><br><br>
+ <label for="operation">Select operation:</label><br>
+ <input type="radio" id="add" name="operation" value="add" required>
+ <label for="add">Addition</label><br>
+ <input type="radio" id="subtract" name="operation" value="subtract">
+ <label for="subtract">Subtraction</label><br>
+ <input type="radio" id="multiply" name="operation" value="multiply">
+ <label for="multiply">Multiplication</label><br>
+ <input type="radio" id="divide" name="operation" value="divide">
+ <label for="divide">Division</label><br><br>
+ <input type="submit" value="Calculate">
+ </form>
+</body>
+</html>
+PHP FILE:
+<?php
+function performOperation($num1, $num2, $operation) {
+ switch ($operation) {
+ case 'add':
+ return $num1 + $num2;
+ case 'subtract':
+ return $num1 - $num2;
+ case 'multiply':
+ return $num1 * $num2;
+ case 'divide':
+ if ($num2 != 0) {
+ return $num1 / $num2;
+ } else {
+ return "Division by zero is not allowed.";
+ }
+ default:
+ return "Invalid operation.";
+ }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ $num1 = $_POST["num1"];
+ $num2 = $_POST["num2"];
+ $operation = $_POST["operation"];
+ $result = performOperation($num1, $num2, $operation);
+ echo "Result: " . $result;
+}
+?>
+Q.2 A) Generate a random array of 50 integers and display them using a line chart,
+scatter plot, histogram and box plot. Apply appropriate color, labels and styling options
+import numpy as np
+import matplotlib.pyplot as plt
+# Generate a random array of 50 integers
+random_array = np.random.randint(0, 100, 50)
+# Line chart
+plt.figure()
+plt.plot(random_array, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.show()
+# Scatter plot
+plt.figure()
+plt.scatter(range(len(random_array)), random_array, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.show()
+# Histogram
+plt.figure()
+plt.hist(random_array, bins=10, color='green', edgecolor='black')
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+# Box plot
+plt.figure()
+plt.boxplot(random_array, vert=False)
+plt.title('Box Plot')
+plt.xlabel('Value')
+plt.show()
+Q.2 B) Write a Python program to create data frame containing column name, salary, department
+add 10 rows with some missing and duplicate values to the data frame. Also drop all null and
+empty values. Print the modified data frame
+import pandas as pd
+import numpy as np
+data = {
+ 'Employee': ['John', 'Alice', 'Bob', 'John', 'Alice', 'Bob', 'Emma', 'John', 'Alice', 'Emma'],
+ 'Salary': [50000, np.nan, 60000, 55000, 52000, np.nan, np.nan, 58000, 54000, 65000],
+ 'Department': ['HR', 'IT', 'Finance', 'Finance', 'HR', 'IT', 'Finance', 'HR', 'IT', 'Finance']
+}
+df = pd.DataFrame(data)
+print("Original DataFrame:")
+print(df)
+additional_data = {
+ 'Employee': ['John', 'Alice', 'Bob', 'John', 'Alice', 'Emma', 'Emma', 'Alice', 'John', 'Bob'],
+ 'Salary': [48000, np.nan, 62000, 54000, 51000, 63000, np.nan, np.nan, 59000, np.nan],
+ 'Department': ['HR', 'IT', 'Finance', 'Finance', 'HR', 'Finance', 'Finance', 'IT', 'HR', 'Finance']
+}
+additional_df = pd.DataFrame(additional_data)
+df = pd.concat([df, additional_df], ignore_index=True)
+df.dropna(inplace=True)
+print("\nModified DataFrame after dropping null and empty values:")
+print(df)
+Slip 13
+Q.1) Write a PHP script to create a chess board using CSS on table cells.
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+ .chessboard {
+ width: 400px;
+ height: 400px;
+ border-collapse: collapse;
+ }
+ .chessboard td {
+ width: 50px;
+ height: 50px;
+ text-align: center;
+ vertical-align: middle;
+ font-size: 24px;
+ }
+ .chessboard .even {
+ background-color: #f0d9b5;
+ }
+ .chessboard .odd {
+ background-color: #b58863; /* Dark color */
+ }
+ </style>
+</head>
+<body>
+ <table class="chessboard">
+ <?php
+ for ($row = 1; $row <= 8; $row++) {
+ echo "<tr>";
+ for ($col = 1; $col <= 8; $col++) {
+ $cell_class = ($row + $col) % 2 == 0 ? "even" : "odd";
+ echo "<td class='$cell_class'></td>";
+ }
+ echo "</tr>";
+ }
+ ?>
+ </table>
+</body>
+</html>
+Q.2 A) Write a Python program to create a graph to find relationship between the petal length and
+petal width.(Use iris.csv dataset)
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv("iris.csv")
+# Extract petal length and petal width columns
+petal_length = data["petal.length"]
+petal_width = data["petal.width"]
+plt.figure(figsize=(8, 6))
+plt.scatter(petal_length, petal_width, c="blue", alpha=0.5)
+plt.title("Relationship Between Petal Length and Petal Width")
+plt.xlabel("Petal Length (cm)")
+plt.ylabel("Petal Width (cm)")
+plt.grid(True)
+# Show the plot
+plt.show()
+Q.2 B) Write a Python program to find the maximum and minimum value of a given flattened
+array
+# Define a flattened array as a list
+flattened_array = [4, 1, 9, 6, 2, 8, 3, 5, 7]
+# Find the maximum and minimum values using the max() and min() functions
+maximum_value = max(flattened_array)
+minimum_value = min(flattened_array)
+# Print the results
+print("Maximum value:", maximum_value)
+print("Minimum value:", minimum_value)
+Slip 14
+Q.1) Create a container add row inside it and add 3 columns inside row using
+BootStrap.
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+ <h1>Bootstrap Container with Row and Columns</h1>
+ <div class="row">
+ <div class="col">
+ <div class="bg-primary text-white p-4">
+ Column 1
+ </div>
+ </div>
+ <div class="col">
+ <div class="bg-success text-white p-4">
+ Column 2
+ </div>
+ </div>
+ <div class="col">
+ <div class="bg-danger text-white p-4">
+ Column 3
+ </div>
+ </div>
+ </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script
+>
+</body>
+</html>
+Q. 2 A) Write a Python NumPy program to compute the weighted average along the specified axis
+of a given flattened array.
+import numpy as np
+flattened_array = np.array([1, 2, 3, 4, 5, 6])
+array = flattened_array.reshape(2, 3)
+weights = np.array([0.1, 0.2, 0.3])
+axis = 1
+weighted_avg = np.average(array, axis=axis, weights=weights)
+print("Original array:")
+print(array)
+print("\nWeights:")
+print(weights)
+print("\nWeighted average along axis", axis, ":")
+print(weighted_avg)
+Q. 2 B) Write a Python program to view basic statistical details of the data (Use
+advertising.csv)
+import pandas as pd
+df = pd.read_csv('advertising.csv')
+print("Basic Statistical Details:")
+print(df.describe())
+Slip No 15
+Q.1) Design a form to accept string from the user and perform the following
+operations
+a. To select first 5 words from the string
+b. Convert the given string to lowercase and then to Title case.
+c. Pad the given string with “*” from left and right both the sides.
+d. Remove the leading whitespaces from the given string.
+e. Find the reverse of given string.
+<!DOCTYPE html>
+<html>
+<head>
+ <title>String Operations</title>
+</head>
+<body>
+ <h1>String Operations</h1>
+ <form action="" method="post">
+ <label for="inputString">Enter a string:</label>
+ <input type="text" id="inputString" name="inputString" required><br><br>
+ <input type="submit" value="Perform Operations">
+ </form>
+ <?php
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ $inputString = $_POST["inputString"];
+ $first5Words = implode(' ', array_slice(str_word_count($inputString, 1), 0, 5));
+ $titleCaseString = ucwords(strtolower($inputString));
+ $paddedString = "" . $inputString . "";
+ $trimmedString = ltrim($inputString);
+ $reversedString = strrev($inputString);
+ echo "<h2>Results:</h2>";
+ echo "a. First 5 words: $first5Words<br>";
+ echo "b. String in title case: $titleCaseString<br>";
+ echo "c. Padded string: $paddedString<br>";
+ echo "d. String after removing leading whitespaces: $trimmedString<br>";
+ echo "e. Reversed string: $reversedString<br>";
+ }
+ ?>
+</body>
+</html>
+
+
+Q.2 A) Generate a random array of 50 integers and display them using a line
+chart, scatter
+plot, histogram and box plot. Apply appropriate color, labels and styling options
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+random_integers = np.random.randint(0, 100, 50)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+ax1.plot(random_integers, marker='o', linestyle='-', color='b', label='Random Integers')
+ax1.set_title('Line Chart')
+ax1.set_xlabel('Index')
+ax1.set_ylabel('Value')
+ax1.legend()
+x = np.arange(1, 51)
+ax2.scatter(x, random_integers, c='r', marker='s', label='Random Integers')
+ax2.set_title('Scatter Plot')
+ax2.set_xlabel('Index')
+ax2.set_ylabel('Value')
+ax2.legend()
+plt.suptitle('Random Integer Data Visualization', fontsize=16)
+plt.tight_layout()
+plt.show()
+
+
+Q.2 B) Create two lists, one representing subject names and the other
+representing marks
+obtained in those subjects. Display the data in a pie chart.
+import matplotlib.pyplot as plt
+subjects = ['Math', 'Science', 'English', 'History', 'Geography']
+marks = [90, 85, 88, 92, 80]
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140,
+colors=plt.cm.tab20.colors)
+plt.title('Marks Obtained in Subjects')
+plt.axis('equal')
+plt.show()
+
+
+Slip No 18
+Q.1) Write a menu driven program to perform the following operations on an associative array a.
+Reverse the order of each element’s key-value pair. b. Traverse the element in an array in random
+order. c. Convert the array elements into individual variables. d. Display the elements of an array
+along with key
+<?php
+$myArray = array(
+ 'apple' => 3,
+ 'banana' => 5,
+ 'cherry' => 2,
+ 'date' => 7
+);
+$reversedArray = array_flip($myArray);
+$randomKeys = array_keys($myArray);
+shuffle($randomKeys);
+foreach ($myArray as $key => $value) {
+ ${$key} = $value;
+}
+foreach ($myArray as $key => $value) {
+ echo "$key: $value\n";
+}
+echo "Individual Variables:\n";
+echo "apple: $apple\n";
+echo "banana: $banana\n";
+echo "cherry: $cherry\n";
+echo "date: $date\n";
+?>
+Q.2 A) Write a Python program to create box plots to see how each feature i.e. Sepal Length, Sepal
+Width, Petal Length, Petal Width are distributed across the three species. (Use iris.csv dataset)
+import pandas as pd
+import matplotlib.pyplot as plt
+iris_data = pd.read_csv("iris.csv")
+plt.figure(figsize=(12, 6))
+# Sepal Length
+plt.subplot(2, 2, 1)
+plt.boxplot([iris_data[iris_data["species"] == "setosa"]["sepal_length"],
+ iris_data[iris_data["species"] == "versicolor"]["sepal_length"],
+ iris_data[iris_data["species"] == "virginica"]["sepal_length"]],
+ labels=["setosa", "versicolor", "virginica"])
+plt.title("Sepal Length")
+# Sepal Width
+plt.subplot(2, 2, 2)
+plt.boxplot([iris_data[iris_data["species"] == "setosa"]["sepal_width"],
+ iris_data[iris_data["species"] == "versicolor"]["sepal_width"],
+ iris_data[iris_data["species"] == "virginica"]["sepal_width"]],
+ labels=["setosa", "versicolor", "virginica"])
+plt.title("Sepal Width")
+# Petal Length
+plt.subplot(2, 2, 3)
+plt.boxplot([iris_data[iris_data["species"] == "setosa"]["petal_length"],
+ iris_data[iris_data["species"] == "versicolor"]["petal_length"],
+ iris_data[iris_data["species"] == "virginica"]["petal_length"]],
+ labels=["setosa", "versicolor", "virginica"])
+plt.title("Petal Length")
+# Petal Width
+plt.subplot(2, 2, 4)
+plt.boxplot([iris_data[iris_data["species"] == "setosa"]["petal_width"],
+ iris_data[iris_data["species"] == "versicolor"]["petal_width"],
+ iris_data[iris_data["species"] == "virginica"]["petal_width"]],
+ labels=["setosa", "versicolor", "virginica"])
+plt.title("Petal Width")
+plt.tight_layout()
+plt.show()
+Q.2 B) Use the heights and weights dataset and load the dataset from a given csv file into a
+dataframe. Print the first, last 5 rows and random 10 row
+import pandas as pd
+df = pd.read_csv('weight-height.csv')
+print("First 5 rows:")
+print(df.head())
+print("\nLast 5 rows:")
+print(df.tail())
+print("\nRandom 10 rows:")
+print(df.sample(10))
+
+ 

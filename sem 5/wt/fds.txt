@@ -1,0 +1,1355 @@
+slip1->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of each species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a Pie plot
+plt.figure(figsize=(8, 8))
+plt.pie(species_frequency, labels=species_frequency.index, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99'])
+plt.title('Frequency of Iris Species')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+=============================================================================================
+b->
+import pandas as pd
+
+# Read the CSV file
+wine_data = pd.read_csv('winequality-red.csv')
+
+# View basic statistical details
+statistical_details = wine_data.describe()
+
+# Display the details
+print(statistical_details)
+#####################################################################################
+slip2->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# Calculate mean of 'salary' and 'age' columns
+salary_mean = data['salary'].mean()
+age_mean = data['age'].mean()
+
+# Fill missing values with mean
+data['salary'].fillna(salary_mean, inplace=True)
+data['age'].fillna(age_mean, inplace=True)
+
+# Save the modified data back to a new CSV file
+data.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Missing values replaced and data saved to Modified_Data.csv")
+============================================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# Calculate mean of 'salary' and 'age' columns
+salary_mean = data['salary'].mean()
+age_mean = data['age'].mean()
+
+# Fill missing values with mean
+data['salary'].fillna(salary_mean, inplace=True)
+data['age'].fillna(age_mean, inplace=True)
+
+# Save the modified data back to a new CSV file
+data.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Missing values replaced and data saved to Modified_Data.csv")
+############################################################################################
+slip3->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Create box plots
+plt.figure(figsize=(12, 8))
+
+# Sepal Length
+plt.subplot(2, 2, 1)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['sepal_length'], 
+             iris_data[iris_data['species']=='versicolor']['sepal_length'], 
+             iris_data[iris_data['species']=='virginica']['sepal_length']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Sepal Length')
+
+# Sepal Width
+plt.subplot(2, 2, 2)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['sepal_width'], 
+             iris_data[iris_data['species']=='versicolor']['sepal_width'], 
+             iris_data[iris_data['species']=='virginica']['sepal_width']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Sepal Width')
+
+# Petal Length
+plt.subplot(2, 2, 3)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['petal_length'], 
+             iris_data[iris_data['species']=='versicolor']['petal_length'], 
+             iris_data[iris_data['species']=='virginica']['petal_length']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Petal Length')
+
+# Petal Width
+plt.subplot(2, 2, 4)
+plt.boxplot([iris_data[iris_data['species']=='setosa']['petal_width'], 
+             iris_data[iris_data['species']=='versicolor']['petal_width'], 
+             iris_data[iris_data['species']=='virginica']['petal_width']],
+            labels=['setosa', 'versicolor', 'virginica'])
+plt.title('Petal Width')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+====================================================================================
+B->
+import pandas as pd
+
+# Assuming you have a dataset named 'heights_weights.csv'
+# If your dataset has a different name, adjust the filename accordingly
+data = pd.read_csv('heights_weights.csv')
+
+# View basic statistical details
+statistical_details = data.describe()
+
+# Display the details
+print(statistical_details)
+#########################################################################################
+slip4->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black')
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===========================================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('User_Data.csv')
+
+# Print the shape of the data (number of rows and columns)
+print(f"Shape of the data: {data.shape}")
+
+# Print the number of rows and columns
+num_rows = data.shape[0]
+num_columns = data.shape[1]
+print(f"Number of rows: {num_rows}")
+print(f"Number of columns: {num_columns}")
+
+# Print the data types of each column
+print("Data types:")
+print(data.dtypes)
+
+# Print the feature names (column names)
+print("Feature names:")
+print(data.columns)
+
+# Print the description of the data
+print("Description:")
+print(data.describe())
+############################################################################################
+slip5->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===============================================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('User_Data.csv')
+
+# Print the shape of the data (number of rows and columns)
+print(f"Shape of the data: {data.shape}")
+
+# Print the number of rows and columns
+num_rows = data.shape[0]
+num_columns = data.shape[1]
+print(f"Number of rows: {num_rows}")
+print(f"Number of columns: {num_columns}")
+
+# Print the data types of each column
+print("Data types:")
+print(data.dtypes)
+
+# Print the feature names (column names)
+print("Feature names:")
+print(data.columns)
+
+# Print the description of the data
+print("Description:")
+print(data.describe())
+#####################################################################################
+slip6->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# Calculate mean of 'salary' and 'age' columns
+salary_mean = data['salary'].mean()
+age_mean = data['age'].mean()
+
+# Fill missing values with mean
+data['salary'].fillna(salary_mean, inplace=True)
+data['age'].fillna(age_mean, inplace=True)
+
+# Save the modified data back to a new CSV file
+data.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Missing values replaced and data saved to Modified_Data.csv")
+=========================================================================================
+B->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming you have a DataFrame 'data' with 'name' and 'salary' columns
+
+# Sample data
+data = {
+    'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve'],
+    'salary': [50000, 60000, 55000, 65000, 70000]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Scatter Plot
+plt.figure(figsize=(10, 6))
+plt.scatter(df['name'], df['salary'], color='blue')
+plt.title('Name vs Salary', fontsize=14)
+plt.xlabel('Name', fontsize=12)
+plt.ylabel('Salary', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.xticks(rotation=45)  # Rotate x-axis labels for better visibility
+plt.show()
+=======================================================================================
+C->
+import pandas as pd
+
+# Load the dataset into a DataFrame
+data = pd.read_csv('heights_weights.csv')
+
+# Print the first 10 rows
+print("First 10 rows:")
+print(data.head(10))
+
+# Print the last 10 rows
+print("\nLast 10 rows:")
+print(data.tail(10))
+
+# Print random 20 rows
+print("\nRandom 20 rows:")
+print(data.sample(20))
+
+# Display the shape of the dataset
+print(f"\nShape of the dataset: {data.shape}")
+#####################################################################################
+slip7->
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+# Read the CSV file
+data = pd.read_csv('Data.csv')
+
+# a. Apply OneHot encoding on Country column
+data_with_onehot = pd.get_dummies(data, columns=['Country'], prefix=['Country'])
+
+# b. Apply Label encoding on purchased column
+label_encoder = LabelEncoder()
+data_with_onehot['Purchased'] = label_encoder.fit_transform(data['Purchased'])
+
+# Save the modified data back to a new CSV file
+data_with_onehot.to_csv('Modified_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("OneHot encoding and Label encoding applied. Data saved to Modified_Data.csv")
+#######################################################################################
+slip8->
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+# Read the CSV file
+data = pd.read_csv('winequality-red.csv')
+
+# Select the features you want to standardize (exclude the target variable if applicable)
+features = data.drop(columns=['quality'])
+
+# Initialize the StandardScaler
+scaler = StandardScaler()
+
+# Standardize the features
+standardized_features = scaler.fit_transform(features)
+
+# Create a new DataFrame with the standardized features
+standardized_data = pd.DataFrame(standardized_features, columns=features.columns)
+
+# Save the standardized data back to a new CSV file
+standardized_data.to_csv('Standardized_Data.csv', index=False)
+
+# Print a message to indicate the process is complete
+print("Data standardized and saved to Standardized_Data.csv")
+#########################################################################
+slip9->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+=================================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+=============================================================
+C->
+import pandas as pd
+
+# a) Describing the dataset
+data = pd.read_csv('winequality-red.csv')
+description = data.describe()
+
+# b) Shape of the dataset
+shape = data.shape
+
+# c) Display first 3 rows from dataset
+first_3_rows = data.head(3)
+
+print("a) Describing the dataset:")
+print(description)
+
+print("\nb) Shape of the dataset:")
+print(shape)
+
+print("\nc) Display first 3 rows from dataset:")
+print(first_3_rows)
+###################################################################################
+slip10->
+import pandas as pd
+
+# Assuming you have a DataFrame 'data' with 'Height' and 'Weight' columns
+
+# Sample data
+data = {
+    'Height': [65, 68, 70, 60, 74, 72],
+    'Weight': [120, 150, 180, 110, 200, 190]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Calculate column-wise mean
+mean_values = df.mean()
+
+# Calculate column-wise median
+median_values = df.median()
+
+# Display the results
+print("Column-wise Mean:")
+print(mean_values)
+
+print("\nColumn-wise Median:")
+print(median_values)
+===============================================
+B->
+def manhattan_distance(point1, point2):
+    return abs(point1[0] - point2[0]) + abs(point1[1] - point2[1])
+
+def sum_manhattan_distances(points):
+    n = len(points)
+    total_distance = 0
+
+    for i in range(n):
+        for j in range(i+1, n):
+            total_distance += manhattan_distance(points[i], points[j])
+
+    return total_distance
+
+# Example points
+points = [(1, 2), (4, 6), (7, 3), (9, 5)]
+
+# Calculate and print the sum of Manhattan distances
+result = sum_manhattan_distances(points)
+print(f"The sum of Manhattan distances between all pairs of points is: {result}")
+##########################################################################
+slip11->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of each species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a Pie plot
+plt.figure(figsize=(8, 8))
+plt.pie(species_frequency, labels=species_frequency.index, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99'])
+plt.title('Frequency of Iris Species')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+========================================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+wine_data = pd.read_csv('winequality-red.csv')
+
+# View basic statistical details
+statistical_details = wine_data.describe()
+
+# Display the details
+print(statistical_details)
+#########################################################################
+slip12->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+================================================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'John', 'Bob', 'Jane', 'Eve', 'Alice', '', None, 'Bob'],
+    'salary': [50000, 60000, None, 65000, 70000, 50000, 55000, 60000, None, 70000, 75000, 80000, 55000],
+    'department': ['HR', 'IT', 'Sales', 'HR', 'IT', 'HR', 'Sales', 'IT', 'IT', 'Sales', 'IT', 'HR', 'Sales']
+}
+
+df = pd.DataFrame(data)
+
+# Print original DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Drop null and empty values
+df = df.dropna(subset=['name', 'salary', 'department']).replace('', None)
+
+# Print modified DataFrame
+print("\nModified DataFrame:")
+print(df)
+######################################################################################
+slip13->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the CSV file
+iris_data = pd.read_csv('iris.csv')
+
+# Define colors for each species
+colors = {'setosa': 'red', 'versicolor': 'green', 'virginica': 'blue'}
+
+# Create a scatter plot
+plt.figure(figsize=(10, 6))
+
+for species, color in colors.items():
+    species_data = iris_data[iris_data['species'] == species]
+    plt.scatter(species_data['petal_length'], species_data['petal_width'], c=color, label=species)
+
+plt.title('Relationship between Petal Length and Petal Width')
+plt.xlabel('Petal Length (cm)')
+plt.ylabel('Petal Width (cm)')
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+========================================================
+B->
+import numpy as np
+
+# Assuming you have a flattened array 'arr'
+# If you have a different array, replace 'arr' with your array
+
+# Example flattened array
+arr = np.array([1, 5, 3, 8, 2, 6, 7, 4])
+
+# Find maximum and minimum values
+max_value = np.max(arr)
+min_value = np.min(arr)
+
+print(f"Maximum value: {max_value}")
+print(f"Minimum value: {min_value}")
+##################################################################
+slip14->
+import numpy as np
+
+# Assuming you have a flattened array 'arr' and corresponding weights 'weights'
+# If you have a different array and weights, replace 'arr' and 'weights' with your own variables
+
+# Example flattened array and weights
+arr = np.array([1, 2, 3, 4, 5, 6])
+weights = np.array([0.1, 0.2, 0.3, 0.2, 0.1, 0.1])
+
+# Reshape the array to have a single dimension (flattened)
+arr = arr.flatten()
+
+# Compute the weighted average
+weighted_avg = np.average(arr, weights=weights)
+
+print(f"The weighted average is: {weighted_avg}")
+============================================================
+B->
+import pandas as pd
+
+# Read the CSV file
+data = pd.read_csv('advertising.csv')
+
+# View basic statistical details
+statistical_details = data.describe()
+
+# Display the details
+print(statistical_details)
+#######################################################
+slip15->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+===============================================================
+B->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+#####################################################################################
+slip16->
+import matplotlib.pyplot as plt
+
+# Create two lists representing subject names and marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 88]
+
+# Create a pie chart
+plt.figure(figsize=(12, 5))
+
+# Pie Chart
+plt.subplot(1, 2, 1)
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+# Bar Chart
+plt.subplot(1, 2, 2)
+plt.bar(subjects, marks, color=['#ff9999','#66b3ff','#99ff99', '#ffcc99'])
+plt.title('Subject-wise Marks')
+plt.xlabel('Subjects')
+plt.ylabel('Marks')
+
+plt.tight_layout()
+plt.show()
+=============================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame for students' information
+data = {
+    'Name': ['John', 'Jane', 'Bob', 'Alice', 'Eve'],
+    'Graduation Percentage': [85, 90, 75, 88, 92],
+    'Age': [22, 23, 21, 24, 22]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate average age and average graduation percentage
+average_age = df['Age'].mean()
+average_percentage = df['Graduation Percentage'].mean()
+
+print(f"Average Age of Students: {average_age}")
+print(f"Average Graduation Percentage: {average_percentage}")
+#########################################################################
+slip17->
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+
+# Load the Iris dataset
+iris = load_iris()
+data = iris.data
+target = iris.target
+
+# Define feature names
+feature_names = iris.feature_names
+
+# Select two features for comparison (e.g., sepal length and sepal width)
+feature1 = 0  # Sepal length
+feature2 = 1  # Sepal width
+
+# Create scatter plot
+plt.figure(figsize=(8, 6))
+plt.scatter(data[target == 0, feature1], data[target == 0, feature2], c='r', label='Setosa', alpha=0.7)
+plt.scatter(data[target == 1, feature1], data[target == 1, feature2], c='g', label='Versicolor', alpha=0.7)
+plt.scatter(data[target == 2, feature1], data[target == 2, feature2], c='b', label='Virginica', alpha=0.7)
+
+# Set labels and title
+plt.xlabel(feature_names[feature1])
+plt.ylabel(feature_names[feature2])
+plt.title(f'Scatter Plot: {feature_names[feature1]} vs {feature_names[feature2]}')
+
+# Add legend
+plt.legend()
+
+# Show the plot
+plt.show()
+=====================================================================
+B->
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'Mark', 'Emily', 'David', 'Sarah', 'Michael'],
+    'Age': [25, 30, 28, 27, 32, 29, 26, 31, 33, 30],
+    'Salary': [60000, 70000, 65000, 75000, 80000, 70000, 72000, 65000, 68000, 75000],
+    'Department': ['HR', 'IT', 'Sales', 'IT', 'Finance', 'IT', 'HR', 'Finance', 'Sales', 'IT']
+}
+
+df = pd.DataFrame(data)
+
+# Print the DataFrame
+print(df)
+#########################################################################
+slip18
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the Iris dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Define the features and species
+features = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
+species = ['setosa', 'versicolor', 'virginica']
+
+# Create box plots for each feature across the three species
+plt.figure(figsize=(12, 8))
+
+for i, feature in enumerate(features, 1):
+    plt.subplot(2, 2, i)
+    plt.boxplot([iris_data[iris_data['species'] == sp][feature] for sp in species], labels=species)
+    plt.title(f'Box Plot of {feature}')
+    plt.xlabel('Species')
+    plt.ylabel(feature)
+
+plt.tight_layout()
+plt.show()
+===============================================================
+B->
+import pandas as pd
+
+# Load the dataset into a DataFrame
+df = pd.read_csv('heights_weights.csv')
+
+# Print the first row
+print("First Row:")
+print(df.head(1))
+
+# Print the last 5 rows
+print("\nLast 5 Rows:")
+print(df.tail(5))
+
+# Print random 10 rows
+print("\nRandom 10 Rows:")
+print(df.sample(10))
+#################################################################################
+slip19
+import pandas as pd
+import numpy as np
+
+# Task 1: Create a dataframe with name, age, and percentage
+data = {
+    'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'Mark', 'Emily', 'David', 'Sarah', 'Michael'],
+    'age': [25, 30, 28, 27, 32, 29, 26, 31, 33, 30],
+    'percentage': [78.5, 89.2, 67.8, 92.0, 81.3, 76.7, 88.9, 72.4, 94.1, 85.6]
+}
+
+df = pd.DataFrame(data)
+
+# Task 2: Print shape, number of rows-columns, data types, feature names, and description
+print(f"Shape of the DataFrame: {df.shape}")
+print(f"Number of Rows: {len(df)}")
+print(f"Number of Columns: {len(df.columns)}")
+print("\nData Types:")
+print(df.dtypes)
+print("\nFeature Names:")
+print(df.columns.tolist())
+print("\nDescription:")
+print(df.describe())
+
+# Task 3: Add 5 rows with duplicate and missing values, and add a 'remarks' column
+missing_data = pd.DataFrame({'name': [None, 'Lisa', 'John', 'Bob', 'Eve'],
+                             'age': [35, None, None, 28, 33],
+                             'percentage': [None, 77.2, 89.5, 66.9, None],
+                             'remarks': ['Missing', 'Duplicate', 'Duplicate', 'Duplicate', 'Missing']})
+
+df = df.append(missing_data, ignore_index=True)
+
+# Print the updated DataFrame
+print("\nUpdated DataFrame:")
+print(df)
+#######################################################################################
+slip20
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.plot(random_data, color='blue', marker='o', linestyle='-', linewidth=2, markersize=8)
+plt.title('Line Chart', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 4))
+plt.scatter(range(50), random_data, color='green', label='Data Points', s=50)
+plt.title('Scatter Plot', fontsize=14)
+plt.xlabel('Index', fontsize=12)
+plt.ylabel('Value', fontsize=12)
+plt.legend()
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
+
+# Histogram
+plt.figure(figsize=(10, 4))
+plt.hist(random_data, bins=10, color='purple', edgecolor='black', alpha=0.7)
+plt.title('Histogram', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.ylabel('Frequency', fontsize=12)
+plt.grid(axis='y', alpha=0.5)
+plt.show()
+
+# Box Plot
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+=======================================================================
+B->
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(0, 100, 50)
+
+# Add two outliers
+random_data = np.append(random_data, [150, 160])
+
+# Box Plot with outliers
+plt.figure(figsize=(10, 4))
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='orange'))
+plt.title('Box Plot with Outliers', fontsize=14)
+plt.xlabel('Value', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.5)
+plt.show()
+###################################################################################
+slip21
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import the dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of the three species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.show()
+==============================================================================
+B->
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import the dataset
+iris_data = pd.read_csv('iris.csv')
+
+# Get the frequency of the three species
+species_frequency = iris_data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.show()
+#####################################################################
+slip22
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+
+# Load the dataset
+data = pd.read_csv('winequality-red.csv')
+
+# Separate the features (X) from the target variable (y) if needed
+# Assuming the target variable is in a column named 'quality'
+X = data.drop('quality', axis=1)
+y = data['quality']
+
+# a. Rescaling using MinMaxScaler
+scaler = MinMaxScaler()
+X_rescaled = scaler.fit_transform(X)
+
+# b. Standardizing Data
+std_scaler = StandardScaler()
+X_standardized = std_scaler.fit_transform(X)
+
+# c. Normalizing Data
+normalizer = Normalizer()
+X_normalized = normalizer.fit_transform(X)
+
+# Print the results
+print("Rescaled Data:")
+print(X_rescaled[:5])  # Printing first 5 rows for demonstration
+
+print("\nStandardized Data:")
+print(X_standardized[:5])  # Printing first 5 rows for demonstration
+
+print("\nNormalized Data:")
+print(X_normalized[:5])  # Printing first 5 rows for demonstration
+###############################################################################
+slip23
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, Binarizer
+
+# Load the dataset
+data = pd.read_csv('winequality-red.csv')
+
+# Separate the features (X) from the target variable (y) if needed
+# Assuming the target variable is in a column named 'quality'
+X = data.drop('quality', axis=1)
+y = data['quality']
+
+# a. Rescaling using MinMaxScaler
+scaler = MinMaxScaler()
+X_rescaled = scaler.fit_transform(X)
+
+# b. Standardizing Data
+std_scaler = StandardScaler()
+X_standardized = std_scaler.fit_transform(X)
+
+# c. Binarizing Data
+binarizer = Binarizer(threshold=3.5)  # Threshold is set to 3.5, you can change it if needed
+X_binarized = binarizer.transform(X)
+
+# Print the results
+print("Rescaled Data:")
+print(X_rescaled[:5])  # Printing first 5 rows for demonstration
+
+print("\nStandardized Data:")
+print(X_standardized[:5])  # Printing first 5 rows for demonstration
+
+print("\nBinarized Data:")
+print(X_binarized[:5])  # Printing first 5 rows for demonstration
+###########################################################################
+slip24
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataset
+data = pd.read_csv('iris.csv')
+
+# Get the frequency of each species
+species_frequency = data['species'].value_counts()
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+species_frequency.plot(kind='bar', color=['blue', 'green', 'red'])
+plt.title('Frequency of Iris Species')
+plt.xlabel('Species')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)  # Rotate x-axis labels if needed
+plt.show()
+============================================================
+B->
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load Iris dataset from seaborn
+iris = sns.load_dataset('iris')
+
+# Create a histogram for each species
+sns.histplot(data=iris, x='sepal_length', hue='species', element='step', stat='density', common_norm=False, kde=True)
+sns.histplot(data=iris, x='sepal_width', hue='species', element='step', stat='density', common_norm=False, kde=True)
+sns.histplot(data=iris, x='petal_length', hue='species', element='step', stat='density', common_norm=False, kde=True)
+sns.histplot(data=iris, x='petal_width', hue='species', element='step', stat='density', common_norm=False, kde=True)
+
+# Set the title and show the plot
+plt.suptitle("Histogram of Iris Data by Species")
+plt.show()
+##########################################################################
+slip25
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(1, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 4))
+plt.subplot(2, 2, 1)
+plt.plot(random_data, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Scatter Plot
+plt.subplot(2, 2, 2)
+plt.scatter(range(50), random_data, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Histogram
+plt.subplot(2, 2, 3)
+plt.hist(random_data, bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+
+# Box Plot
+plt.subplot(2, 2, 4)
+plt.boxplot(random_data, vert=False, patch_artist=True)
+plt.title('Box Plot')
+plt.xlabel('Value')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+===========================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Define the subject names and marks obtained
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 80]
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['#ff9999','#66b3ff','#99ff99','#ffcc99'])
+plt.title('Subject-wise Marks Distribution')
+
+# Display the pie chart
+plt.show()
+################################################################################
+slip26
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(1, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(10, 8))
+plt.subplot(2, 2, 1)
+plt.plot(random_data, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Scatter Plot
+plt.subplot(2, 2, 2)
+plt.scatter(range(50), random_data, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Histogram
+plt.subplot(2, 2, 3)
+plt.hist(random_data, bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+
+# Box Plot
+plt.subplot(2, 2, 4)
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='yellow'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+===========================================================================================
+B->
+import matplotlib.pyplot as plt
+
+# Define the subject names and marks obtained
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 80]
+
+# Create a bar chart
+plt.figure(figsize=(8, 6))
+plt.bar(subjects, marks, color=['blue', 'green', 'red', 'purple'])
+plt.title('Subject-wise Marks')
+plt.xlabel('Subjects')
+plt.ylabel('Marks Obtained')
+
+# Display the bar chart
+plt.show()
+######################################################################
+slip27
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+# Load the dataset
+df = pd.read_csv('data.csv')
+
+# One-Hot encoding on 'Country' column
+encoder = OneHotEncoder(sparse=False)
+encoded_country = encoder.fit_transform(df[['Country']])
+df_encoded = pd.concat([df, pd.DataFrame(encoded_country, columns=encoder.get_feature_names_out(['Country']))], axis=1)
+df_encoded = df_encoded.drop(columns=['Country'])
+
+# Label encoding on 'Purchased' column
+label_encoder = LabelEncoder()
+df_encoded['Purchased'] = label_encoder.fit_transform(df_encoded['Purchased'])
+
+# Save the encoded dataset to a new CSV file
+df_encoded.to_csv('encoded_data.csv', index=False)
+************csv*************************************
+Country,Purchased
+USA,Yes
+Canada,No
+Germany,Yes
+USA,No
+France,Yes
+Canada,Yes
+France,No
+Germany,Yes
+France,No
+USA,Yes
+####################################################################################
+import pandas as pd
+import numpy as np
+
+# Task 1: Create a dataframe with columns name, age, and percentage
+data = {'name': ['John', 'Jane', 'Bob', 'Alice', 'Eve', 'Charlie', 'Diana', 'Frank', 'Grace', 'Henry'],
+        'age': [25, 30, 22, 28, 26, 27, 29, 31, 23, 24],
+        'percentage': [75.5, 88.3, 65.2, 90.1, 77.8, 82.6, 69.7, 95.0, 70.3, 78.9]}
+
+df = pd.DataFrame(data)
+
+# Task 1 (Continued): Add 10 rows to the dataframe
+additional_data = {'name': ['Sam', 'Lucy', 'Tom', 'Emily', 'Oliver', 'Sophia', 'Liam', 'Emma', 'Mason', 'Ava'],
+                   'age': [26, 29, 30, 25, 31, 23, 28, 27, 32, 24],
+                   'percentage': [72.4, 91.7, 68.8, 85.3, 79.6, 83.2, 76.9, 92.5, 73.8, 87.4]}
+
+df = df.append(pd.DataFrame(additional_data), ignore_index=True)
+
+# Task 1 (Continued): View the dataframe
+print("Task 1: DataFrame with 20 rows")
+print(df)
+print()
+
+# Task 2: Print shape, number of rows-columns, data types, feature names, and data description
+print("Task 2: Data Details")
+print(f"Shape: {df.shape}")
+print(f"Number of Rows: {len(df)}")
+print(f"Number of Columns: {len(df.columns)}")
+print(f"Data Types:\n{df.dtypes}\n")
+print(f"Feature Names:\n{df.columns}\n")
+print(f"Description:\n{df.describe()}\n")
+
+# Task 3: View basic statistical details of the data
+print("Task 3: Basic Statistical Details")
+print(df.describe())
+print()
+
+# Task 4: Add 5 rows with duplicate and missing values, add 'remarks' column with empty values
+additional_data_task4 = {'name': ['Jane', np.nan, 'Bob', 'Alice', 'Eve'],
+                         'age': [30, 27, 22, 28, np.nan],
+                         'percentage': [88.3, 82.6, 65.2, np.nan, 77.8],
+                         'remarks': ['', '', '', '', '']}
+
+df = df.append(pd.DataFrame(additional_data_task4), ignore_index=True)
+
+print("Task 4: DataFrame with 25 rows (including duplicates and missing values)")
+print(df)
+#############################################################################
+slip29
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv('data.csv')
+
+# Apply One-Hot encoding on 'Country' column
+df_encoded = pd.get_dummies(df, columns=['Country'], drop_first=True)
+
+# Apply Label encoding on 'Purchased' column
+df_encoded['Purchased'] = df_encoded['Purchased'].astype('category')
+df_encoded['Purchased'] = df_encoded['Purchased'].cat.codes
+
+# Save the encoded dataset to a new CSV file
+df_encoded.to_csv('encoded_data.csv', index=False)
+#############################################################################
+slip30
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Part A: Generate random array and display with different plots
+
+# Generate a random array of 50 integers
+random_data = np.random.randint(1, 100, 50)
+
+# Line Chart
+plt.figure(figsize=(12, 3))
+plt.subplot(1, 4, 1)
+plt.plot(random_data, color='blue')
+plt.title('Line Chart')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Scatter Plot
+plt.subplot(1, 4, 2)
+plt.scatter(range(50), random_data, color='red')
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Value')
+
+# Histogram
+plt.subplot(1, 4, 3)
+plt.hist(random_data, bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+
+# Box Plot
+plt.subplot(1, 4, 4)
+plt.boxplot(random_data, vert=False, patch_artist=True, boxprops=dict(facecolor='yellow'))
+plt.title('Box Plot')
+plt.xlabel('Value')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
+
+# Part B: Create lists representing subject names and marks
+
+# Define subject names and corresponding marks
+subjects = ['Math', 'Science', 'English', 'History']
+marks = [85, 90, 75, 80]
+
+# Create a bar chart
+plt.figure(figsize=(8, 6))
+plt.bar(subjects, marks, color=['blue', 'green', 'red', 'purple'])
+plt.title('Subject-wise Marks')
+plt.xlabel('Subjects')
+plt.ylabel('Marks Obtained')
+
+# Display the bar chart
+plt.show()
+
